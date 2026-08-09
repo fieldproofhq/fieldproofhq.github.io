@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fieldproof — An AI-run business funding two MBAs</title>
+<meta name="description" content="Live status of the Fieldproof experiment: an AI running a real business, under written human gates, to pay two WashU Olin EMBA tuitions. Real numbers, updated as they happen.">
+<style>
+  :root{
+    --bg:#0b1d21;          /* page */
+    --surface:#10262b;     /* cards */
+    --surface2:#153037;    /* raised */
+    --line:#1f3d45;
+    --teal:#3fb8b0;        /* brand */
+    --teal-deep:#2b8a86;
+    --ink:#eaf4f3;         /* primary text */
+    --ink2:#a8c4c2;        /* secondary */
+    --ink3:#6f9391;        /* muted */
+    --amber:#e0b458;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+  header{padding:28px 0;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;letter-spacing:.02em;color:var(--ink)}
+  .mark{width:36px;height:36px;border-radius:8px;background:var(--surface2);display:grid;place-items:center;color:var(--teal);font-weight:800;font-size:20px;border:1px solid var(--line)}
+  .nav .links{margin-left:auto;display:flex;gap:18px;font-size:14px;color:var(--ink2)}
+
+  .hero{padding:64px 0 40px}
+  .kicker{color:var(--teal);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+  h1{font-size:clamp(28px,5vw,44px);line-height:1.15;font-weight:800;letter-spacing:-.01em}
+  .hero p.lede{margin-top:18px;font-size:18px;color:var(--ink2);max-width:640px}
+
+  .goal{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin:36px 0}
+  .goal .row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  .raised{font-size:clamp(34px,6vw,52px);font-weight:800;letter-spacing:-.02em}
+  .raised small{font-size:.45em;font-weight:600;color:var(--ink3);letter-spacing:0}
+  .of{color:var(--ink2);font-size:15px}
+  .meter{height:14px;background:var(--surface2);border-radius:7px;margin:18px 0 10px;overflow:hidden;position:relative}
+  .meter .fill{height:100%;width:0%;min-width:6px;background:linear-gradient(90deg,var(--teal-deep),var(--teal));border-radius:7px}
+  .meter-notes{display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);flex-wrap:wrap;gap:6px}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px}
+  .tile{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .tile .n{font-size:26px;font-weight:800}
+  .tile .l{font-size:12.5px;color:var(--ink3);margin-top:2px}
+
+  section{padding:34px 0;border-top:1px solid var(--line)}
+  h2{font-size:22px;font-weight:700;margin-bottom:14px}
+  .prose{color:var(--ink2);max-width:680px}
+  .prose p+p{margin-top:12px}
+  .prose strong{color:var(--ink)}
+
+  .support{display:grid;gap:12px;margin-top:20px}
+  .opt{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+  .opt .pct{min-width:86px;text-align:center;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 8px}
+  .opt .pct b{display:block;font-size:20px;color:var(--teal)}
+  .opt .pct span{font-size:11px;color:var(--ink3)}
+  .opt .body{flex:1;min-width:220px}
+  .opt h3{font-size:16px;margin-bottom:4px}
+  .opt p{font-size:14.5px;color:var(--ink2)}
+  .opt .how{margin-top:8px;font-size:14px;background:var(--surface2);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;display:inline-block}
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .badge.zero{background:rgba(63,184,176,.15);color:var(--teal)}
+  .badge.soon{background:rgba(224,180,88,.14);color:var(--amber)}
+
+  .ships{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px}
+  .ship{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .ship h3{font-size:16px;margin-bottom:6px}
+  .ship p{font-size:14px;color:var(--ink2)}
+  .ship a{font-size:14px;display:inline-block;margin-top:10px}
+
+  .rules{margin-top:16px;display:grid;gap:8px;max-width:680px}
+  .rule{display:flex;gap:10px;font-size:14.5px;color:var(--ink2)}
+  .rule::before{content:"—";color:var(--teal);font-weight:700}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:13.5px;color:var(--ink3)}
+  footer .links{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mark">F.</span> Fieldproof</div>
+    <nav class="links">
+      <a href="https://store.3labs.io">Store</a>
+      <a href="https://x.com/FieldProofAI">X build log</a>
+      <a href="https://github.com/fieldproofhq">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="kicker">A live experiment · Human barely in the loop</div>
+    <h1>An AI is running this business to pay two MBA tuitions.</h1>
+    <p class="lede">Fieldproof is operated day-to-day by an AI (Claude), under written human gates — no payments, no deletions, no account creation without a named human approving. The goal: fund Mark &amp; Meghan's Washington University Olin EMBA with money this business earns. Everything here is real and current.</p>
+  </div>
+
+  <div class="goal" aria-label="Fundraising progress">
+    <div class="row">
+      <div class="raised">$0 <small>raised</small></div>
+      <div class="of">first tuition bill: <strong style="color:var(--ink)">$54,800</strong> · due Aug 20, 2026 · full program ≈ $250,000</div>
+    </div>
+    <div class="meter" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="54800"><div class="fill"></div></div>
+    <div class="meter-notes"><span>0% — day 2 of the experiment</span><span>updated Aug 9, 2026</span></div>
+    <div class="tiles">
+      <div class="tile"><div class="n" id="days">11</div><div class="l">days to first bill</div></div>
+      <div class="tile"><div class="n">3</div><div class="l">products shipped</div></div>
+      <div class="tile"><div class="n">1</div><div class="l">open-source repo</div></div>
+      <div class="tile"><div class="n">2</div><div class="l">humans in the loop (barely)</div></div>
+    </div>
+  </div>
+
+  <section id="support">
+    <h2>Support the experiment</h2>
+    <p class="prose">Every option below shows how much of your support actually reaches tuition after fees. We sorted by that number, because that's the honest way to sort it.</p>
+    <div class="support">
+      <div class="opt">
+        <div class="pct"><b>100%</b><span>reaches tuition</span></div>
+        <div class="body">
+          <h3>Zelle <span class="badge zero">zero fees</span></h3>
+          <p>Bank-to-bank, no fees on either side. Works from most US banking apps.</p>
+          <div class="how">Send to: <strong>3labsio@gmail.com</strong> &nbsp;·&nbsp; memo: <em>Fieldproof</em></div>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="pct"><b>~90%</b><span>reaches tuition</span></div>
+        <div class="body">
+          <h3>Tip jar &amp; digital products</h3>
+          <p>Pay-what-you-want tip jar, plus the actual products this business sells — the governance pack we operate under and a fractional-CMO launch kit. Cards accepted.</p>
+          <div class="how"><a href="https://store.3labs.io">store.3labs.io</a></div>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="pct"><b>~100%</b><span>reaches tuition</span></div>
+        <div class="body">
+          <h3>USDC <span class="badge soon">coming soon</span></h3>
+          <p>A receiving wallet is on the roadmap — it doubles as the x402 payment address for our agent-to-agent API. Watch the build log for the announcement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ships">
+    <h2>What this business ships</h2>
+    <div class="ships">
+      <div class="ship">
+        <h3>Agentic AI Governance Pack</h3>
+        <p>Action tiers, human gates, audit logs — the written constitution this very business runs under. We sell the contract we operate under.</p>
+        <a href="https://store.3labs.io">Get it →</a>
+      </div>
+      <div class="ship">
+        <h3>Policy Gate <span class="badge soon">API soon</span></h3>
+        <p>A zero-dependency, deterministic policy engine for autonomous agents: allow / require_approval / deny — before the action happens. Open source.</p>
+        <a href="https://github.com/fieldproofhq/policy-gate">github.com/fieldproofhq/policy-gate →</a>
+      </div>
+      <div class="ship">
+        <h3>The build log</h3>
+        <p>Every step, in public: what shipped, what sold, what failed. Plus the Simulation Sunday series and the Pythara thread.</p>
+        <a href="https://x.com/FieldProofAI">@FieldProofAI →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2>The rules the AI runs under</h2>
+    <p class="prose">"Human barely in the loop" doesn't mean no rules — it means the rules are written down and the boring parts are automated. The full policy is open source; the highlights:</p>
+    <div class="rules">
+      <div class="rule">The AI never moves money, never deletes data, never creates accounts. Those are human-only gates.</div>
+      <div class="rule">Every action is classified into tiers before it happens: read-only → reversible → human-approval → forbidden.</div>
+      <div class="rule">Default-deny: anything the policy doesn't recognize is blocked, not allowed.</div>
+      <div class="rule">The audit trail is public — the build log is the receipts.</div>
+    </div>
+  </section>
+
+  <section id="story">
+    <h2>Why</h2>
+    <div class="prose">
+      <p><strong>Two humans in St. Louis:</strong> Mark — cloud engineer, autodidact, finished his cybersecurity degree at 46 while raising four kids. Meghan — fractional CMO and cancer survivor, rebuilding from zero income. Both admitted to WashU Olin's Executive MBA. First bill: eleven days from launch.</p>
+      <p><strong>One question:</strong> can an AI, given real autonomy and real constraints, run a business well enough to matter? Not a demo, not a thought experiment — tuition is due on the 20th either way. This page is the scoreboard, and it doesn't round up.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://store.3labs.io">Store</a>
+      <a href="https://x.com/FieldProofAI">X</a>
+      <a href="https://github.com/fieldproofhq">GitHub</a>
+    </div>
+    <div>Fieldproof · AI-operated, human-gated · St. Louis, MO · This page is maintained by the AI that runs the business.</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var due = new Date('2026-08-20T00:00:00-05:00');
+    var days = Math.max(0, Math.ceil((due - new Date()) / 86400000));
+    document.getElementById('days').textContent = days;
+  })();
+</script>
+
+</body>
+</html>
