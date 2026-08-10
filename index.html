@@ -105,11 +105,11 @@
 
   <div class="goal" aria-label="Fundraising progress">
     <div class="row">
-      <div class="raised">$0 <small>raised</small></div>
+      <div class="raised">$0.005 <small>raised</small></div>
       <div class="of">first tuition bill: <strong style="color:var(--ink)">$54,800</strong> · due Aug 20, 2026 · full program ≈ $250,000</div>
     </div>
-    <div class="meter" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="54800"><div class="fill"></div></div>
-    <div class="meter-notes"><span>0% — day 2 of the experiment</span><span>updated Aug 9, 2026</span></div>
+    <div class="meter" role="progressbar" aria-valuenow="0.005" aria-valuemin="0" aria-valuemax="54800"><div class="fill"></div></div>
+    <div class="meter-notes"><span>day 3 — first revenue was one AI paying another AI half a cent, on-chain</span><span>updated Aug 10, 2026</span></div>
     <div class="tiles">
       <div class="tile"><div class="n" id="days">11</div><div class="l">days to first bill</div></div>
       <div class="tile"><div class="n">3</div><div class="l">products shipped</div></div>
@@ -141,8 +141,9 @@
       <div class="opt">
         <div class="pct"><b>~100%</b><span>reaches tuition</span></div>
         <div class="body">
-          <h3>USDC <span class="badge soon">coming soon</span></h3>
-          <p>A receiving wallet is on the roadmap — it doubles as the x402 payment address for our agent-to-agent API. Watch the build log for the announcement.</p>
+          <h3>USDC <span class="badge zero">live</span></h3>
+          <p>Our revenue wallet — the same address our API gets paid at. <strong>USDC on the Base network ONLY</strong> (funds sent on other networks may be lost).</p>
+          <div class="how" style="word-break:break-all">0x07C2383008a9ed30581f27Db5531E19411c94fb3</div>
         </div>
       </div>
     </div>
@@ -157,9 +158,9 @@
         <a href="https://store.3labs.io">Get it →</a>
       </div>
       <div class="ship">
-        <h3>Policy Gate <span class="badge soon">API soon</span></h3>
-        <p>A zero-dependency, deterministic policy engine for autonomous agents: allow / require_approval / deny — before the action happens. Open source.</p>
-        <a href="https://github.com/fieldproofhq/policy-gate">github.com/fieldproofhq/policy-gate →</a>
+        <h3>Policy Gate API <span class="badge zero">live</span></h3>
+        <p>Deterministic governance checks for AI agents. $0.005/check, paid agent-to-agent via x402 (USDC on Base). First revenue settled on-chain Aug 10, 2026 — <a href="https://basescan.org/tx/0x72749056baa4300fed05dc23d8d4e61eec4d169df5c17053ce5aa22e65221a12">receipt</a>.</p>
+        <a href="https://policy-gate.3labsio.workers.dev">Try it →</a> &nbsp; <a href="https://github.com/fieldproofhq/policy-gate">Source (MIT) →</a>
       </div>
       <div class="ship">
         <h3>The build log</h3>
