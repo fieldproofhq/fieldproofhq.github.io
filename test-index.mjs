@@ -25,7 +25,8 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   const pay = fs.readFileSync(new URL("./pay/index.html", import.meta.url), "utf8");
   assert.match(pay, /Pay \$42 with card/);
   assert.match(pay, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
-  assert.match(pay, /create-qr-code/);
+  assert.match(pay, /http-equiv="refresh"/);
+  assert.match(pay, /location\.replace/);
   assert.match(pay, /Affirm/);
   assert.match(pay, /rel="payment"/);
   assert.match(pay, /application\/ld\+json/);
