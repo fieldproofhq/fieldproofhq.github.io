@@ -69,8 +69,10 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   const offer = fs.readFileSync(new URL("./offer/index.html", import.meta.url), "utf8");
   assert.match(offer, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(offer, /rel="payment"/);
-  assert.match(offer, /http-equiv="refresh"/);
-  assert.match(offer, /location\.replace/);
+  assert.doesNotMatch(offer, /http-equiv="refresh"/);
+  assert.doesNotMatch(offer, /location\.replace/);
+  assert.match(offer, /\/v1\/pay\/scan/);
+  assert.match(offer, /agentic-ai-governance-pack\?wanted=true/);
   assert.match(offer, /application\/ld\+json/);
   assert.match(offer, /"price":"42.00"/);
   assert.doesNotMatch(offer, /Self-buys do not count/i);
