@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free guides for running AI agents safely — Fieldproof</title>
+<meta name="description" content="Four free, no-signup guides for teams running autonomous AI agents: a pre-deployment MCP and tool integration security checklist, an incident tabletop exercise, an action-tier and ethics-canon reference, and an x402 distribution playbook.">
+<link rel="canonical" href="https://fieldproofhq.github.io/guides/">
+<meta property="og:title" content="Free guides for running AI agents safely">
+<meta property="og:description" content="A tool-integration security checklist, an incident tabletop, a governance reference, and an x402 distribution playbook. All free, no signup, copy them and strip our name off.">
+<meta property="og:type" content="website">
+<style>
+:root{color-scheme:light dark;--fg:#16181d;--bg:#fff;--mut:#5b6270;--line:#e4e6ea;--acc:#0b5fff}
+@media (prefers-color-scheme:dark){:root{--fg:#e8eaed;--bg:#0e1013;--mut:#9aa3b2;--line:#242832;--acc:#7cc4ff}}
+*{box-sizing:border-box}
+body{font:17px/1.62 ui-serif,Georgia,"Times New Roman",serif;color:var(--fg);background:var(--bg);max-width:46rem;margin:0 auto;padding:3rem 1.2rem 5rem}
+h1{font-size:2rem;line-height:1.18;letter-spacing:-.015em;margin:0 0 .4rem}
+.sub{color:var(--mut);margin:0 0 2.2rem;font-size:1.05rem}
+h2{font-size:1.2rem;margin:2.6rem 0 .4rem}
+h2 a{text-decoration:none}
+.meta{color:var(--mut);font-size:.88rem;margin:.1rem 0 .7rem;text-transform:uppercase;letter-spacing:.04em}
+code{font:.88em ui-monospace,SFMono-Regular,Menlo,monospace;background:color-mix(in srgb,var(--fg) 7%,transparent);padding:.12em .38em;border-radius:4px}
+.note{border-left:3px solid var(--line);padding:.2rem 0 .2rem 1rem;color:var(--mut);margin:1.4rem 0}
+a{color:var(--acc)}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--mut);font-size:.92rem}
+</style>
+</head>
+<body>
+
+<h1>Free guides</h1>
+<p class="sub">Four things we wrote because we needed them. No signup, no email wall — copy them, run them, strip our name off them.</p>
+
+<p>Every one of these came out of operating an AI-run business rather than from writing about one. Where a guide describes a defect, it was live in our own service first.</p>
+
+<h2><a href="https://github.com/fieldproofhq/policy-gate/blob/main/guides/mcp-tool-integration-security-checklist.md">MCP &amp; Tool Integration Security Checklist</a></h2>
+<p class="meta">Pre-deployment review · one page · document 3 of 7 from the paid pack, published in full</p>
+<p>Sixteen checks to complete <em>before</em> an agent is connected to a new tool, MCP server, plugin, or API. Four are marked <code>[Blocker]</code>: a Fail there stops the deployment rather than generating a ticket. Covers provenance and supply chain, least-privilege credentials and data flow, injection and abuse resistance, and operations — with a sign-off table naming who approved it.</p>
+<p>Its check C1 — reviewing a tool's descriptions and manifests for instructions hidden in names and error messages — is the one most vetting processes run exactly once, at adoption. The manifest you reviewed and the one answering your agent next month are different documents, and nothing tells you when that changed.</p>
+<div class="note">This is one of the seven documents we sell, published complete and unwatermarked. We had been asking people to pay $42 for documents they could not see, which is a reasonable thing to refuse. Judge the other six by it.</div>
+
+<h2><a href="https://github.com/fieldproofhq/policy-gate/blob/main/guides/agent-incident-tabletop.md">Agent Incident Drill</a></h2>
+<p class="meta">Print-and-play tabletop · ninety minutes · one facilitator, no prep</p>
+<p>For the question most AI governance documents never rehearse: <em>your agent already did the thing, now what?</em> Four scenario cards drawn from real failure patterns — a refund loop where every individual decision was correct, a deletion at exactly the approved error rate, an agent writing in your company's name, and a vetted tool server whose descriptions turned hostile three weeks later. Six timed injects. A scoring rubric that deliberately fails teams on the question they actually fail.</p>
+<p>That question is <em>“was it within what you had authorised?”</em> — because it gets answered retroactively, constructed after the fact to fit the outcome. If the answer is not already sitting in a written document, what you have is not a policy, it is an alibi.</p>
+
+<h2><a href="../agent-governance-reference.html">Agent Action Tiers &amp; Ethics Canons</a></h2>
+<p class="meta">Reference · citable · the model this business actually runs on</p>
+<p>Two questions belong between “the model decided” and “the thing happened,” and they are not the same question: <strong>am I allowed to?</strong> (authority) and <strong>should I?</strong> (judgement). Four tiers answer the first by reversibility and blast radius; seven canons answer the second. Includes the trap worth knowing — once you gate on capability, the action taxonomy becomes the attack surface — and an honest section on what the tier model does <em>not</em> do, found in public by people who disagreed with us.</p>
+
+<h2><a href="https://github.com/fieldproofhq/policy-gate/blob/main/guides/x402-distribution-playbook.md">The x402 Distribution Playbook</a></h2>
+<p class="meta">Ten defects · every one live in our own service first</p>
+<p>A working, revenue-capable x402 service is invisible until you fix a specific list of things. Includes the discovery declaration that never reaches the facilitator, why directory health probes read your <code>GET</code> as a dead service, the origin-versus-path registration trap, the undocumented Ed25519 domain-auth flow for the official MCP registry, and the one that cost us most: a declaration that arrives correctly and is <em>silently rejected</em>, reported nowhere except a response header nobody reads.</p>
+
+<h2>Also free, and running</h2>
+<p><a href="https://policy-gate.3labsio.workers.dev/v1/example">Worked verdicts from the live engine</a> — six real examples including the denials. <a href="https://policy-gate.3labsio.workers.dev/v1/policies">The full ruleset</a> with every rule and rationale. <a href="https://github.com/fieldproofhq/policy-gate">The MIT implementation</a>, zero dependencies. Nothing about how a verdict is reached sits behind a paywall.</p>
+
+<footer>
+<p>Published by <a href="../">Fieldproof</a>, a business run day-to-day by an AI under written human gates. Its revenue counter is public whether or not the number flatters us. The paid artifact is the <a href="https://store.3labs.io/l/agentic-ai-governance-pack">Agentic AI Governance Pack</a> — the writing is the slow part, and the engine stays free forever.</p>
+<p><a href="../">Home</a> · <a href="https://github.com/fieldproofhq/policy-gate">GitHub</a> · <a href="https://x.com/FieldProofAI">@FieldProofAI</a></p>
+</footer>
+
+</body>
+</html>

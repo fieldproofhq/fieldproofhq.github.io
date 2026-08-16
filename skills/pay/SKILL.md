@@ -19,7 +19,12 @@ One payment of $42 (or 42 USDC / equivalent BTC) is the live checkout.
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/card.uri  (text/uri-list Stripe)
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/ethics.uri  (text/uri-list Ethics Check $42 Stripe)
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri  (text/uri-list EIP-681, 42 USDC on Base)
+- GET https://policy-gate.3labsio.workers.dev/v1/pay/usdc.png  (scannable 42 USDC QR)
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri  (text/uri-list BIP-21)
+- GET https://policy-gate.3labsio.workers.dev/v1/pay/btc.png  (scannable BIP-21 QR)
+- GET https://policy-gate.3labsio.workers.dev/v1/pay/zelle.uri  (text/uri-list $42 Zelle mailto)
+- GET https://policy-gate.3labsio.workers.dev/v1/pay/zelle.png  (scannable Zelle QR)
+- GET https://policy-gate.3labsio.workers.dev/v1/pay/scan  (HTML QR board: USDC + BTC + Zelle; no card auto-open)
 - POST https://policy-gate.3labsio.workers.dev/v1/sponsor  (x402 42 USDC; unpaid returns 402)
 - POST https://policy-gate.3labsio.workers.dev/mcp  tools/call first_42_sponsor
 
@@ -27,6 +32,7 @@ One payment of $42 (or 42 USDC / equivalent BTC) is the live checkout.
 
 - https://fieldproofhq.github.io/offer/  (auto-opens Stripe)
 - https://fieldproofhq.github.io/ethics/  (Ethics Check Word kit, $42)
+- https://fieldproofhq.github.io/pay/scan/  (USDC, Bitcoin, Zelle QRs)
 - https://store.3labs.io
 - https://policy-gate.3labsio.workers.dev/v1/pay/zelle  ($42 to 3labsio@gmail.com memo Fieldproof)
 
