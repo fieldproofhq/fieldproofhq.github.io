@@ -22,6 +22,13 @@
         "responses": { "302": { "description": "Redirect to Stripe" } }
       }
     },
+    "/v1/invoice": {
+      "get": {
+        "operationId": "invoice42",
+        "summary": "HTTP 200 multi-rail $42 invoice: Stripe, EIP-681, BIP-21, x402, Zelle",
+        "responses": { "200": { "description": "JSON invoice" } }
+      }
+    },
     "/v1/pay/usdc.uri": {
       "get": {
         "operationId": "payUsdcUri",

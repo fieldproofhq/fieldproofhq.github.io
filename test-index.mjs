@@ -100,6 +100,14 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(llmsFull, /3labsio@gmail.com/);
   assert.match(llmsFull, /\/v1\/pay\/usdc\.uri/);
   assert.match(llmsFull, /\/v1\/pay\/btc\.uri/);
+  assert.match(llmsFull, /\/v1\/invoice/);
+  const invoiceDoc = JSON.parse(fs.readFileSync(new URL("./invoice.json", import.meta.url), "utf8"));
+  assert.equal(invoiceDoc.amountUsd, 42);
+  assert.equal(invoiceDoc.card, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.ok(invoiceDoc.methods.some((m) => m.scheme === "eip681" && /uint256=42000000/.test(m.uri)));
+  assert.equal(payWellKnown.also.invoice, "https://policy-gate.3labsio.workers.dev/v1/invoice");
+  assert.ok(openapi.paths["/v1/invoice"].get);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/invoice/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/llms-full\.txt/);
   assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/usdc\.uri/);
   assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/btc\.uri/);

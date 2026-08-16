@@ -1,0 +1,47 @@
+{
+  "id": "fieldproof-42",
+  "amountUsd": 42,
+  "currency": "USD",
+  "description": "One $42 payment meets the first-income bar. Self-test excluded.",
+  "card": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+  "live": "https://policy-gate.3labsio.workers.dev/v1/invoice",
+  "methods": [
+    {
+      "scheme": "stripe",
+      "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+      "amountUsd": 42,
+      "methods": ["card", "cashapp", "link", "us_bank_account", "klarna", "afterpay_clearpay", "affirm"]
+    },
+    {
+      "scheme": "eip681",
+      "uri": "ethereum:0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913@8453/transfer?address=0x07C2383008a9ed30581f27Db5531E19411c94fb3&uint256=42000000",
+      "url": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri",
+      "network": "eip155:8453",
+      "asset": "USDC",
+      "amountUsd": 42,
+      "amountAtomic": "42000000",
+      "payTo": "0x07C2383008a9ed30581f27Db5531E19411c94fb3"
+    },
+    {
+      "scheme": "bip21",
+      "url": "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri",
+      "asset": "BTC",
+      "amountUsd": 42,
+      "payTo": "bc1qxwjhlllya7yvh0kvfggrjfzxwme7zhqs07777t"
+    },
+    {
+      "scheme": "x402",
+      "url": "https://policy-gate.3labsio.workers.dev/v1/sponsor",
+      "method": "POST",
+      "asset": "USDC",
+      "amountUsd": 42,
+      "amountAtomic": "42000000"
+    },
+    {
+      "scheme": "zelle",
+      "payTo": "3labsio@gmail.com",
+      "amountUsd": 42,
+      "memo": "Fieldproof"
+    }
+  ]
+}

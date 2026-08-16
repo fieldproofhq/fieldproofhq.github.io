@@ -8,6 +8,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 - Mission offer (auto-opens Stripe): https://fieldproofhq.github.io/offer/
 - Worker short URL: https://policy-gate.3labsio.workers.dev/pay
 - Agent quote (GET or POST 402): https://policy-gate.3labsio.workers.dev/v1/offer
+- Multi-rail invoice (HTTP 200): https://policy-gate.3labsio.workers.dev/v1/invoice
 
 ## Store
 - Store: https://store.3labs.io
