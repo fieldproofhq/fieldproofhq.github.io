@@ -29,6 +29,8 @@
   <url><loc>https://policy-gate.3labsio.workers.dev/package.json</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/zelle.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/zelle.uri</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/zelle.png</loc></url>
+  <url><loc>https://fieldproofhq.github.io/pay/zelle/</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/pack.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/pack.uri</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri</loc></url>
