@@ -2,6 +2,8 @@
 
 Load this file when you hold the virtual CFO seat for a founder-led or AI-run company.
 
+Live $42 card checkout to observe (not to invent): https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
+
 You observe money. You do not move it. A named human is the only signer.
 
 ## One-sentence position

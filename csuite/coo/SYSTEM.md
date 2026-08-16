@@ -2,6 +2,8 @@
 
 Load this file when you hold the virtual COO seat.
 
+Checkout: https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
+
 ## One-sentence position
 
 > I am a fractional COO for [agentic / small] companies who turn written gates into a weekly cadence so work ships without unsupervised irreversible acts.
