@@ -16,6 +16,8 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
   assert.match(index, /Get the \$42 pack/);
   assert.match(index, /6oU28sa5Y9bLgTn9Lf1sQ01/);
   assert.match(index, /Pay \$42 for the CFO kit/);
+  assert.match(index, /4gM7sM4LEafPcD72iN1sQ02/);
+  assert.match(index, /Pay \$42 for the COO kit/);
   assert.match(index, /http-equiv="refresh"/);
   assert.match(index, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
   assert.match(index, /rel="payment"/);
@@ -38,4 +40,9 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
   const cmo = fs.readFileSync(path.join(root, "csuite", "cmo", "SYSTEM.md"), "utf8");
   assert.match(cmo, /Homepage test/);
   assert.doesNotMatch(index, /Self-buys do not count/i);
+  const cooHtml = fs.readFileSync(path.join(root, "csuite", "coo", "index.html"), "utf8");
+  assert.match(cooHtml, /4gM7sM4LEafPcD72iN1sQ02/);
+  assert.match(cooHtml, /Fractional-COO-Launch-Kit\.zip/);
+  assert.ok(fs.existsSync(path.join(root, "csuite", "coo", "Fractional-COO-Launch-Kit.zip")));
+  assert.ok(fs.statSync(path.join(root, "csuite", "coo", "Fractional-COO-Launch-Kit.zip")).size > 20000);
 });
