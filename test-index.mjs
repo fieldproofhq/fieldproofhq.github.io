@@ -13,6 +13,7 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(html, /tip-jar\?wanted=true/);
   assert.match(html, /Browse the store/);
   assert.match(html, /Pay \$42 with card/);
+  assert.match(html, /fieldproofhq\.github\.io\/pay\//);
   assert.match(html, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(html, /fractional-cmo-launch-kit\?wanted=true/);
   assert.match(html, /csuite\/cmo/);
@@ -20,4 +21,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(html, /background:var\(--accent\)/);
   const reference = fs.readFileSync(new URL("./agent-governance-reference.html", import.meta.url), "utf8");
   assert.match(reference, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  const pay = fs.readFileSync(new URL("./pay/index.html", import.meta.url), "utf8");
+  assert.match(pay, /Pay \$42 with card/);
+  assert.match(pay, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(pay, /create-qr-code/);
+  assert.doesNotMatch(pay, /Self-buys do not count/i);
 });
