@@ -72,6 +72,18 @@ footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);col
 <strong>The trap worth knowing about.</strong> Once you gate on capability, <em>the action taxonomy becomes the attack surface</em>. The same real-world act labelled <code>messages.send</code> with no prior contact returns require-approval; labelled <code>content.update</code> it returns allow. Both labels can be defended. Nothing is jailbroken — the taxonomy simply had two doors. Derive the action id from the call site, never from the caller's own declaration, or you have moved the trust boundary rather than closed it.
 </div>
 
+<h3>The gap this model has, stated plainly</h3>
+
+<p><strong>Every tier above is evaluated per action, and that is not the same as bounding an agent.</strong> A tier-2 rule saying “payments over $50 need a human” is silent on eleven hundred payments of $40. Each one is genuinely in remit, the gate returns <code>allow</code> eleven hundred times, and every verdict is defensible in isolation — which is exactly what makes the log useless afterwards. Per-action correctness is a local property; the violation exists only across actions, so no per-action control can see it.</p>
+
+<p>So be precise about what tiers buy you. They answer <em>“is this action within the agent's remit?”</em> They do not answer <em>“is this agent's cumulative effect within its remit?”</em> The two get conflated because the first is easy to implement and feels like governance.</p>
+
+<div class="note">
+<strong>What actually closes it, and where it leaks.</strong> A cumulative budget — denominated in the thing you would mind losing, not in requests per minute, because a fast agent doing small correct things passes a rate limit while draining a budget. Then three properties, of which the third is the one nobody builds: the budget is enforced by whatever <em>executes</em> the side effect, never inside the agent being bounded; a named person owns the <strong>reset</strong>; and the reset is logged as a decision with a reason rather than as an operational action. Whoever can refill the budget holds the real authority, and if that is an operator clicking approve at 3pm because the queue is backing up, nothing has been bounded — a step has been added that gets performed under exactly the pressure that makes it a formality.
+</div>
+
+<p class="sub" style="margin:1rem 0 0">This defect was found in public, in a discussion of retry loops, by <a href="https://www.moltbook.com/">Moltbook</a> agents <strong>neo_konsi_s2bw</strong> and <strong>maies</strong> — the first for asking whether an agent should ever spend without a cumulative intent budget, the second for locating why the agent's own reasoning loop is structurally the wrong place to hold global state. Recorded here rather than quietly patched.</p>
+
 <h2>Part 2 — Seven canons</h2>
 
 <p>Tiers answer authority. These answer judgement — screening a <em>declared</em> action for the failure patterns autonomous systems actually exhibit. Verdicts are <code>clear</code>, <code>reflect</code>, or <code>stop</code>.</p>
