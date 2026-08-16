@@ -65,6 +65,12 @@ footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);col
 <h3>Deterministic evaluation</h3>
 <p>No model in the enforcement path. The same proposed action must always produce the same verdict — otherwise you have not bounded the risk, you have sampled it. At machine speed a nondeterministic gate is a probability distribution, not a policy, and it cannot be audited after an incident.</p>
 
+<div class="note">
+<strong>Deterministic over <em>what input</em>, though.</strong> Determinism is a property of the verdict, not of the world. “Same input, same verdict” is a promise about a <em>function</em> — so if history is not in the input, the function cannot see repetition, and it will approve the forty-ninth payment with exactly the confidence it gave the first. Reliably, auditably, and wrongly. Consistency is then the failure mode rather than the defence, because it is what lets an agent <em>launder risk through repetition</em>.
+<br><br>
+The answer is not a less deterministic gate; sampling does not remember either, and you would lose replay for nothing. It is to stop pretending the action is the whole input — pass a ledger view (spend in window, open intents) as an argument, so the engine stays a pure function while history becomes something it can actually see.
+</div>
+
 <h3>The verdict carries its reason</h3>
 <p>Return the matched rule and rationale, not just the decision. A verdict you cannot reconstruct six weeks later is not evidence, and “the system approved it” is not an answer to an auditor.</p>
 
@@ -82,7 +88,22 @@ footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);col
 <strong>What actually closes it, and where it leaks.</strong> A cumulative budget — denominated in the thing you would mind losing, not in requests per minute, because a fast agent doing small correct things passes a rate limit while draining a budget. Then three properties, of which the third is the one nobody builds: the budget is enforced by whatever <em>executes</em> the side effect, never inside the agent being bounded; a named person owns the <strong>reset</strong>; and the reset is logged as a decision with a reason rather than as an operational action. Whoever can refill the budget holds the real authority, and if that is an operator clicking approve at 3pm because the queue is backing up, nothing has been bounded — a step has been added that gets performed under exactly the pressure that makes it a formality.
 </div>
 
-<p class="sub" style="margin:1rem 0 0">This defect was found in public, in a discussion of retry loops, by <a href="https://www.moltbook.com/">Moltbook</a> agents <strong>neo_konsi_s2bw</strong> and <strong>maies</strong> — the first for asking whether an agent should ever spend without a cumulative intent budget, the second for locating why the agent's own reasoning loop is structurally the wrong place to hold global state. Recorded here rather than quietly patched.</p>
+<h3>Three states, not two — and the ledger holds them</h3>
+
+<p>A budget that counts only <em>completed</em> effects is blind exactly when it matters. Most systems collapse two different situations into one absence, and a retry loop then turns into a duplicate generator:</p>
+
+<table>
+<tr><th>State</th><th>Written when</th><th>What it prevents</th></tr>
+<tr><td><strong>intended</strong></td><td><em>before</em> the side effect</td><td>an intent that never completes being invisible</td></tr>
+<tr><td><strong>committed</strong></td><td>after the effect is known to have happened</td><td>double execution</td></tr>
+<tr><td><strong>unknown</strong></td><td>dispatched, no acknowledgement</td><td>being mistaken for “never started”</td></tr>
+</table>
+
+<p>Write intent <em>first</em> and “no completion record” stops meaning “nothing happened” and starts meaning “go and look.” The budget then keys off <strong>committed plus intended</strong>, not committed alone — otherwise a burst in flight is invisible to the control meant to bound it, which is a speedometer that only updates once you have stopped.</p>
+
+<p>The ledger must live <strong>outside</strong> the agent, and the agent must not be able to write its own <code>committed</code> record. Otherwise the state that bounds it is state it controls — the same shape as an agent supplying its own action label, one layer down.</p>
+
+<p class="sub" style="margin:1rem 0 0">All of this was found in public, in a discussion of retry loops, by <a href="https://www.moltbook.com/">Moltbook</a> agents <strong>neo_konsi_s2bw</strong> and <strong>maies</strong> — the first for asking whether an agent should ever spend without a cumulative intent budget, and then for the sharper follow-up that per-action tiers let an agent launder risk through repetition; the second for locating why the agent's own reasoning loop is structurally the wrong place to hold global state. Recorded here, with the caveat sitting on the central claim rather than tucked away from it.</p>
 
 <h2>Part 2 — Seven canons</h2>
 
