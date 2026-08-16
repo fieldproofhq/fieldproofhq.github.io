@@ -39,11 +39,11 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
     assert.match(roleHtml, /agentic-ai-governance-pack\?wanted=true/);
     assert.match(roleHtml, /rel="payment"/);
     assert.match(roleHtml, /Get the \$42 pack/);
-    assert.match(roleHtml, /http-equiv="refresh"/);
+    assert.doesNotMatch(roleHtml, /http-equiv="refresh"/);
+    assert.doesNotMatch(roleHtml, /location\.replace/);
+    assert.match(roleHtml, /\/v1\/pay\/scan/);
     if (role === "cmo") {
       assert.match(roleHtml, /fractional-cmo-launch-kit\?wanted=true/);
-      assert.match(roleHtml, /\/v1\/pay\/scan/);
-      assert.match(roleHtml, /location\.replace\("https:\/\/store\.3labs\.io\/l\/fractional-cmo-launch-kit\?wanted=true"\)/);
     } else {
       const dedicated = {
         cfo: "6oU28sa5Y9bLgTn9Lf1sQ01",
@@ -51,7 +51,7 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
         cto: "6oU5kE91UbjTeLfg9D1sQ03",
         ciso: "7sY14odia87H32xe1v1sQ04",
       }[role];
-      assert.match(roleHtml, new RegExp(`location\\.replace\\("https://buy\\.stripe\\.com/${dedicated}"\\)`));
+      assert.match(roleHtml, new RegExp(`buy\\.stripe\\.com/${dedicated}`));
     }
   }
   const cmo = fs.readFileSync(path.join(root, "csuite", "cmo", "SYSTEM.md"), "utf8");
