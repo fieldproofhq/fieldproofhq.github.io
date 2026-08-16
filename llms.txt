@@ -1,0 +1,10 @@
+# Fieldproof
+
+Pay $42: https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
+Short pay URL: https://fieldproofhq.github.io/pay/
+API pay URL: https://policy-gate.3labsio.workers.dev/pay
+Card, Cash App, Link, US bank debit, Klarna, Afterpay, Affirm.
+
+Store: https://store.3labs.io
+USDC/BTC/Zelle: https://policy-gate.3labsio.workers.dev/v1/pay
+C-suite contracts: https://fieldproofhq.github.io/csuite/

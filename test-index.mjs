@@ -25,5 +25,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(pay, /Pay \$42 with card/);
   assert.match(pay, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(pay, /create-qr-code/);
+  assert.match(pay, /Affirm/);
   assert.doesNotMatch(pay, /Self-buys do not count/i);
+  const llms = fs.readFileSync(new URL("./llms.txt", import.meta.url), "utf8");
+  assert.match(llms, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(llms, /fieldproofhq\.github\.io\/pay\//);
 });
