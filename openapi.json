@@ -15,6 +15,13 @@
     "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
   },
   "paths": {
+    "/humans.txt": {
+      "get": {
+        "operationId": "humansTxt",
+        "summary": "humans.txt listing the operator and every live $42 rail",
+        "responses": { "200": { "description": "text/plain humans.txt with live $42 rails" } }
+      }
+    },
     "/.well-known/security.txt": {
       "get": {
         "operationId": "securityTxt",

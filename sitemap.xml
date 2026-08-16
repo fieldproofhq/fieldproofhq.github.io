@@ -28,6 +28,8 @@
   <url><loc>https://fieldproofhq.github.io/pay/tip-jar.uri</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/security.txt</loc></url>
   <url><loc>https://fieldproofhq.github.io/.well-known/security.txt</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/humans.txt</loc></url>
+  <url><loc>https://fieldproofhq.github.io/humans.txt</loc></url>
   <url><loc>https://fieldproofhq.github.io/package.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/card.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/invoice.json</loc></url>

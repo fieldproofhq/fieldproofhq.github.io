@@ -1,0 +1,17 @@
+/* TEAM */
+Operator: Fieldproof
+Contact: 3labsio@gmail.com
+Site: https://fieldproofhq.github.io/
+Pay: https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
+
+/* SITE */
+Invoice: https://policy-gate.3labsio.workers.dev/v1/invoice
+Card: https://policy-gate.3labsio.workers.dev/v1/pay/card.uri
+USDC: https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri
+BTC: https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri
+Zelle: https://policy-gate.3labsio.workers.dev/v1/pay/zelle.uri
+Pack: https://policy-gate.3labsio.workers.dev/v1/pay/pack.uri
+Tip: https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri
+Skill: https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md
+MCP: https://policy-gate.3labsio.workers.dev/mcp
+Standards: https://humanstxt.org/

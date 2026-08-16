@@ -21,6 +21,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 - $42 tip jar: https://store.3labs.io/l/tip-jar?wanted=true
 - Tip-jar URI (text/uri-list): https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri
 - security.txt: https://policy-gate.3labsio.workers.dev/.well-known/security.txt
+- humans.txt: https://policy-gate.3labsio.workers.dev/humans.txt
 
 ## Crypto / Zelle
 - 42 USDC on Base: https://policy-gate.3labsio.workers.dev/v1/pay/usdc

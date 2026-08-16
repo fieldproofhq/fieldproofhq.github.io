@@ -152,6 +152,15 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(openapi.paths["/.well-known/security.txt"].get);
   assert.match(llmsFull, /\/\.well-known\/security\.txt/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/security\.txt/);
+  const humans = fs.readFileSync(new URL("./humans.txt", import.meta.url), "utf8");
+  assert.match(humans, /\/\* TEAM \*\//);
+  assert.match(humans, /3labsio@gmail.com/);
+  assert.match(humans, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(humans, /\/v1\/invoice/);
+  assert.equal(payWellKnown.also.humans, "https://policy-gate.3labsio.workers.dev/humans.txt");
+  assert.ok(openapi.paths["/humans.txt"].get);
+  assert.match(llmsFull, /\/humans\.txt/);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/humans\.txt/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
