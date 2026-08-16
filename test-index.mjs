@@ -13,6 +13,7 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(html, /tip-jar\?wanted=true/);
   assert.match(html, /Browse the store/);
   assert.match(html, /Pay \$42 with card/);
+  assert.match(html, /class="cta" href="https:\/\/fieldproofhq\.github\.io\/offer\/">Pay \$42/);
   assert.match(html, /fieldproofhq\.github\.io\/pay\//);
   assert.match(html, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(html, /fractional-cmo-launch-kit\?wanted=true/);
