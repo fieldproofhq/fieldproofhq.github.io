@@ -15,6 +15,9 @@ test("Ethics Check kit is published with a live $42 checkout and a real ZIP", ()
   assert.match(html, /agentic-ai-governance-pack\?wanted=true/);
   assert.match(html, /Get the \$42 pack/);
   assert.match(html, /\/v1\/canons/);
+  assert.match(html, /\/v1\/pay\/scan/);
+  assert.doesNotMatch(html, /http-equiv="refresh"/);
+  assert.doesNotMatch(html, /location\.replace/);
   assert.doesNotMatch(html, /Pythara/i);
   const zip = path.join(root, "ethics", "Fieldproof-Ethics-Check-Launch-Kit.zip");
   assert.ok(fs.existsSync(zip));
