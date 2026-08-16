@@ -18,4 +18,6 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(html, /csuite\/cmo/);
   assert.doesNotMatch(html, /Self-buys do not count/i);
   assert.match(html, /background:var\(--accent\)/);
+  const reference = fs.readFileSync(new URL("./agent-governance-reference.html", import.meta.url), "utf8");
+  assert.match(reference, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
 });
