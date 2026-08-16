@@ -14,6 +14,8 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
   assert.match(index, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(index, /Pay \$42 with card/);
   assert.match(index, /Get the \$42 pack/);
+  assert.match(index, /6oU28sa5Y9bLgTn9Lf1sQ01/);
+  assert.match(index, /Pay \$42 for the CFO kit/);
   assert.match(index, /http-equiv="refresh"/);
   assert.match(index, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
   assert.match(index, /rel="payment"/);
