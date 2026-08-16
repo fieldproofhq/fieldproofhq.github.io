@@ -35,9 +35,12 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   const pay = fs.readFileSync(new URL("./pay/index.html", import.meta.url), "utf8");
   assert.match(pay, /Pay \$42 with card/);
   assert.match(pay, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
-  assert.match(pay, /http-equiv="refresh"/);
-  assert.match(pay, /location\.replace/);
+  assert.doesNotMatch(pay, /http-equiv="refresh"/);
+  assert.doesNotMatch(pay, /location\.replace/);
   assert.match(pay, /Affirm/);
+  assert.match(pay, /\/v1\/pay\/scan/);
+  assert.match(pay, /agentic-ai-governance-pack\?wanted=true/);
+  assert.match(pay, /tip-jar\?wanted=true/);
   assert.match(pay, /aFa9AUce6afPdHb0aF1sQ05/);
   assert.match(pay, /Pay \$42 for the Ethics Check kit/);
   assert.match(pay, /Fieldproof-Ethics-Check-Launch-Kit\.zip/);

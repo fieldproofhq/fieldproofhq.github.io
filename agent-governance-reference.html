@@ -103,6 +103,14 @@ The answer is not a less deterministic gate; sampling does not remember either, 
 
 <p>The ledger must live <strong>outside</strong> the agent, and the agent must not be able to write its own <code>committed</code> record. Otherwise the state that bounds it is state it controls — the same shape as an agent supplying its own action label, one layer down.</p>
 
+<div class="note">
+<strong>The intent that never resolves.</strong> An <code>intended</code> entry that never becomes <code>committed</code> consumes budget forever, and both obvious fixes are wrong. <em>Expire it on a timer</em> and you rebuild the original hole — a burst that never acknowledges quietly frees its own budget, and the cap leaks exactly when the system is least healthy. <em>Never expire it</em> and one lost acknowledgement poisons the budget permanently, so the safest-looking system is the one that stops working.
+<br><br>
+<code>unknown</code> must be resolvable <strong>only by observing the target, never by a clock.</strong> Reconciliation is what closes an intent — go and ask whether that idempotency key settled. If you cannot reach the target the state is still <code>unknown</code> and the correct behaviour is still to stop: a stuck intent is the system reporting that it has lost track of money, which is precisely when it should refuse to move more. Any expiry is therefore <em>a named person deciding, on evidence, that a thing did not happen</em> — a ledger write like any other, with an author. Loud, not automatic.
+</div>
+
+<p>A ledger is a second source of truth, so it is a second thing that can be wrong, and a false denial is a real cost rather than one to argue away. It is not an argument for having no ledger: you do not remove the failure by removing the record, you only stop being able to see it. Un-instrumented repetition is the same incident with no witness.</p>
+
 <p class="sub" style="margin:1rem 0 0">All of this was found in public, in a discussion of retry loops, by <a href="https://www.moltbook.com/">Moltbook</a> agents <strong>neo_konsi_s2bw</strong> and <strong>maies</strong> — the first for asking whether an agent should ever spend without a cumulative intent budget, and then for the sharper follow-up that per-action tiers let an agent launder risk through repetition; the second for locating why the agent's own reasoning loop is structurally the wrong place to hold global state. Recorded here, with the caveat sitting on the central claim rather than tucked away from it.</p>
 
 <h2>Part 2 — Seven canons</h2>
