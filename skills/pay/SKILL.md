@@ -17,6 +17,7 @@ One payment of $42 (or 42 USDC / equivalent BTC) is the live checkout.
 
 - GET https://policy-gate.3labsio.workers.dev/v1/invoice  (HTTP 200 JSON, every rail)
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/card.uri  (text/uri-list Stripe)
+- GET https://policy-gate.3labsio.workers.dev/v1/pay/ethics.uri  (text/uri-list Ethics Check $42 Stripe)
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri  (text/uri-list EIP-681, 42 USDC on Base)
 - GET https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri  (text/uri-list BIP-21)
 - POST https://policy-gate.3labsio.workers.dev/v1/sponsor  (x402 42 USDC; unpaid returns 402)
@@ -25,6 +26,7 @@ One payment of $42 (or 42 USDC / equivalent BTC) is the live checkout.
 ## Humans
 
 - https://fieldproofhq.github.io/offer/  (auto-opens Stripe)
+- https://fieldproofhq.github.io/ethics/  (Ethics Check Word kit, $42)
 - https://store.3labs.io
 - https://policy-gate.3labsio.workers.dev/v1/pay/zelle  ($42 to 3labsio@gmail.com memo Fieldproof)
 

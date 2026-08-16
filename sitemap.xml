@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://fieldproofhq.github.io/pay/</loc></url>
+  <url><loc>https://fieldproofhq.github.io/pay/ethics.uri</loc></url>
+  <url><loc>https://fieldproofhq.github.io/ethics/</loc></url>
+  <url><loc>https://buy.stripe.com/aFa9AUce6afPdHb0aF1sQ05</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/ethics</loc></url>
   <url><loc>https://fieldproofhq.github.io/offer/</loc></url>
   <url><loc>https://fieldproofhq.github.io/</loc></url>
   <url><loc>https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00</loc></url>

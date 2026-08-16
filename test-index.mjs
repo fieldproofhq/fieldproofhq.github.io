@@ -38,6 +38,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(pay, /http-equiv="refresh"/);
   assert.match(pay, /location\.replace/);
   assert.match(pay, /Affirm/);
+  assert.match(pay, /aFa9AUce6afPdHb0aF1sQ05/);
+  assert.match(pay, /Pay \$42 for the Ethics Check kit/);
+  assert.match(pay, /Fieldproof-Ethics-Check-Launch-Kit\.zip/);
   assert.match(pay, /rel="payment"/);
   assert.match(pay, /application\/ld\+json/);
   assert.match(pay, /"price":"42.00"/);
@@ -55,6 +58,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(robots, /Sitemap: https:\/\/fieldproofhq\.github\.io\/sitemap\.xml/);
   const sitemap = fs.readFileSync(new URL("./sitemap.xml", import.meta.url), "utf8");
   assert.match(sitemap, /fieldproofhq\.github\.io\/pay\//);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/ethics\//);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/pay\/ethics\.uri/);
+  assert.match(sitemap, /buy\.stripe\.com\/aFa9AUce6afPdHb0aF1sQ05/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/offer\//);
   const offer = fs.readFileSync(new URL("./offer/index.html", import.meta.url), "utf8");
   assert.match(offer, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
