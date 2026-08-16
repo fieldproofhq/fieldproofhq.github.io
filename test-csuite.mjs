@@ -22,9 +22,10 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
   assert.match(index, /Pay \$42 for the CTO kit/);
   assert.match(index, /7sY14odia87H32xe1v1sQ04/);
   assert.match(index, /Pay \$42 for the CISO kit/);
-  assert.match(index, /http-equiv="refresh"/);
-  assert.match(index, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+  assert.match(index, /\/v1\/pay\/scan/);
   assert.match(index, /rel="payment"/);
+  assert.doesNotMatch(index, /http-equiv="refresh"/);
+  assert.doesNotMatch(index, /location\.replace/);
   for (const role of ["cmo", "cfo", "coo", "cto", "ciso"]) {
     const system = fs.readFileSync(path.join(root, "csuite", role, "SYSTEM.md"), "utf8");
     const kit = JSON.parse(fs.readFileSync(path.join(root, "csuite", role, "kit.json"), "utf8"));
@@ -44,7 +45,13 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
       assert.match(roleHtml, /\/v1\/pay\/scan/);
       assert.match(roleHtml, /location\.replace\("https:\/\/store\.3labs\.io\/l\/fractional-cmo-launch-kit\?wanted=true"\)/);
     } else {
-      assert.match(roleHtml, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+      const dedicated = {
+        cfo: "6oU28sa5Y9bLgTn9Lf1sQ01",
+        coo: "4gM7sM4LEafPcD72iN1sQ02",
+        cto: "6oU5kE91UbjTeLfg9D1sQ03",
+        ciso: "7sY14odia87H32xe1v1sQ04",
+      }[role];
+      assert.match(roleHtml, new RegExp(`location\\.replace\\("https://buy\\.stripe\\.com/${dedicated}"\\)`));
     }
   }
   const cmo = fs.readFileSync(path.join(root, "csuite", "cmo", "SYSTEM.md"), "utf8");
