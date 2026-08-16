@@ -14,6 +14,7 @@
   <url><loc>https://fieldproofhq.github.io/.well-known/mcp.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/.well-known/llms.txt</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/offer</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/v1/quote</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/invoice</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/card.uri</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md</loc></url>

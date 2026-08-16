@@ -9,6 +9,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 - Mission offer (auto-opens Stripe): https://fieldproofhq.github.io/offer/
 - Worker short URL: https://policy-gate.3labsio.workers.dev/pay
 - Agent quote (GET or POST 402): https://policy-gate.3labsio.workers.dev/v1/offer
+- Directory quote alias (GET or POST 402): https://policy-gate.3labsio.workers.dev/v1/quote
 - Multi-rail invoice (HTTP 200): https://policy-gate.3labsio.workers.dev/v1/invoice
 - MCP pay tool (first_42_sponsor): https://policy-gate.3labsio.workers.dev/mcp
 - Agent skill: https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md

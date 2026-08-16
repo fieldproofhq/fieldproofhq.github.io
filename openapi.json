@@ -57,6 +57,18 @@
         "responses": { "302": { "description": "Redirect to Stripe" } }
       }
     },
+    "/v1/quote": {
+      "get": {
+        "operationId": "quote42",
+        "summary": "Directory alias of /v1/offer. HTML 302s to Stripe; otherwise HTTP 402 with 42 USDC plus card fallback.",
+        "responses": { "402": { "description": "Payment required" } }
+      },
+      "post": {
+        "operationId": "quote42Post",
+        "summary": "POST-only $42 quote. Always 402 with 42 USDC plus card fallback.",
+        "responses": { "402": { "description": "Payment required" } }
+      }
+    },
     "/v1/invoice": {
       "get": {
         "operationId": "invoice42",
