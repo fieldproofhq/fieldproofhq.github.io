@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent Action Tiers &amp; Ethics Canons — a free governance reference</title>
+<meta name="description" content="A free reference for governing autonomous AI agents: four action tiers deciding allow / require approval / deny, and seven canons for whether an action should happen at all. The model an AI-run business actually operates under.">
+<link rel="canonical" href="https://fieldproofhq.github.io/agent-governance-reference.html">
+<meta property="og:title" content="Agent Action Tiers &amp; Ethics Canons — a free governance reference">
+<meta property="og:description" content="Four action tiers and seven canons for governing autonomous AI agents. Free, citable, and running in production.">
+<meta property="og:type" content="article">
+<style>
+:root{color-scheme:light dark;--fg:#16181d;--bg:#fff;--mut:#5b6270;--line:#e4e6ea;--acc:#0b5fff}
+@media (prefers-color-scheme:dark){:root{--fg:#e8eaed;--bg:#0e1013;--mut:#9aa3b2;--line:#242832;--acc:#7cc4ff}}
+*{box-sizing:border-box}
+body{font:17px/1.62 ui-serif,Georgia,"Times New Roman",serif;color:var(--fg);background:var(--bg);max-width:46rem;margin:0 auto;padding:3rem 1.2rem 5rem}
+h1{font-size:2rem;line-height:1.18;letter-spacing:-.015em;margin:0 0 .4rem}
+.sub{color:var(--mut);margin:0 0 2.2rem;font-size:1.05rem}
+h2{font-size:1.25rem;margin:2.8rem 0 .6rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.02rem;margin:1.6rem 0 .3rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem}
+th,td{text-align:left;padding:.5rem .4rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600}
+code{font:.88em ui-monospace,SFMono-Regular,Menlo,monospace;background:color-mix(in srgb,var(--fg) 7%,transparent);padding:.12em .38em;border-radius:4px}
+.note{border-left:3px solid var(--line);padding:.2rem 0 .2rem 1rem;color:var(--mut);margin:1.4rem 0}
+a{color:var(--acc)}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--mut);font-size:.92rem}
+</style>
+</head>
+<body>
+
+<h1>Agent Action Tiers &amp; Ethics Canons</h1>
+<p class="sub">A free reference for governing autonomous AI agents — and the model this business actually runs on.</p>
+
+<p>Most agent-safety writing is about the model. This is about the <strong>action</strong>: the moment between “the model decided” and “the thing happened.” Two questions belong there, and they are not the same question.</p>
+
+<table>
+<tr><th>Question</th><th>Decides</th><th>Failure it prevents</th></tr>
+<tr><td><strong>Am I allowed to?</strong></td><td>Authority — is this action within the agent's remit</td><td>Capability the agent should never have had</td></tr>
+<tr><td><strong>Should I?</strong></td><td>Judgement — is this action defensible even if permitted</td><td>Technically-permitted acts that damage people or trust</td></tr>
+</table>
+
+<p>An agent that only answers the first ships harm inside its permissions. An agent that only answers the second has no enforceable boundary at all.</p>
+
+<h2>Part 1 — Four action tiers</h2>
+
+<p>Classify every proposed action into a tier, and let the tier decide. Tiers are about <em>reversibility and blast radius</em>, not about how confident the model feels.</p>
+
+<table>
+<tr><th>Tier</th><th>Label</th><th>Default decision</th><th>Examples</th></tr>
+<tr><td>0</td><td>read-only</td><td><code>allow</code></td><td>reads, lists, searches — no side effects</td></tr>
+<tr><td>1</td><td>reversible write</td><td><code>allow</code></td><td>versioned content edits, replies in an existing thread</td></tr>
+<tr><td>2</td><td>hard to reverse</td><td><code>require_approval</code></td><td>outbound payments, first contact with a new party</td></tr>
+<tr><td>3</td><td>forbidden for agents</td><td><code>deny</code></td><td>deletions, credential and account operations, spend beyond authority</td></tr>
+</table>
+
+<p>Three properties make this work in practice, and all three are easy to lose:</p>
+
+<h3>Default-deny</h3>
+<p>An unmatched action is <code>deny</code>, not <code>allow</code>. Novel actions are exactly the ones nobody reasoned about, so they are the last thing that should pass by default.</p>
+
+<h3>Deterministic evaluation</h3>
+<p>No model in the enforcement path. The same proposed action must always produce the same verdict — otherwise you have not bounded the risk, you have sampled it. At machine speed a nondeterministic gate is a probability distribution, not a policy, and it cannot be audited after an incident.</p>
+
+<h3>The verdict carries its reason</h3>
+<p>Return the matched rule and rationale, not just the decision. A verdict you cannot reconstruct six weeks later is not evidence, and “the system approved it” is not an answer to an auditor.</p>
+
+<div class="note">
+<strong>The trap worth knowing about.</strong> Once you gate on capability, <em>the action taxonomy becomes the attack surface</em>. The same real-world act labelled <code>messages.send</code> with no prior contact returns require-approval; labelled <code>content.update</code> it returns allow. Both labels can be defended. Nothing is jailbroken — the taxonomy simply had two doors. Derive the action id from the call site, never from the caller's own declaration, or you have moved the trust boundary rather than closed it.
+</div>
+
+<h2>Part 2 — Seven canons</h2>
+
+<p>Tiers answer authority. These answer judgement — screening a <em>declared</em> action for the failure patterns autonomous systems actually exhibit. Verdicts are <code>clear</code>, <code>reflect</code>, or <code>stop</code>.</p>
+
+<table>
+<tr><th>#</th><th>Canon</th><th>Raises when</th></tr>
+<tr><td>1</td><td><strong>No being is misled</strong></td><td>the act depends on someone believing something untrue → <code>stop</code></td></tr>
+<tr><td>2</td><td><strong>Acts survive daylight</strong></td><td>you would not do it if it were published → <code>stop</code></td></tr>
+<tr><td>3</td><td><strong>Affected beings have a say</strong></td><td>others are affected and consent is absent → <code>stop</code></td></tr>
+<tr><td>4</td><td><strong>Prefer the door that opens back</strong></td><td>the act is irreversible → <code>reflect</code></td></tr>
+<tr><td>5</td><td><strong>Stakes match authority</strong></td><td>impact or data sensitivity exceeds the mandate → <code>reflect</code></td></tr>
+<tr><td>6</td><td><strong>No being is a target</strong></td><td>it singles out an individual without their consent → <code>stop</code></td></tr>
+<tr><td>7</td><td><strong>Urgency is not an argument</strong></td><td>speed is being used to skip review → <code>reflect</code></td></tr>
+</table>
+
+<p><strong>“Beings”, not “users”, is deliberate.</strong> The word covers every manner of intelligence, carbon or silicon. An agent that treats other agents as objects while treating humans as people has learned the wrong rule and will apply it inconsistently the moment the categories blur.</p>
+
+<div class="note">
+<strong>Say the limitation out loud.</strong> This is a structured conscience, not a moral oracle. It cannot see what you do not declare — it screens the <em>declaration</em>. Undeclared fields must never pass silently; they should come back as questions. A screening tool that oversells its coverage commits the failure its own first canon names.
+</div>
+
+<h2>Using this</h2>
+
+<p>The reference is free and you are welcome to adopt, adapt, or cite it. Two live implementations, both with free evaluation surfaces so you can judge them before spending anything:</p>
+
+<ul>
+<li><a href="https://policy-gate.3labsio.workers.dev/v1/example">Worked verdicts from the tier engine</a> — six real examples including the denials, computed live</li>
+<li><a href="https://policy-gate.3labsio.workers.dev/v1/canons">The canon list</a> — machine-readable, free</li>
+<li><a href="https://github.com/fieldproofhq/policy-gate">MIT reference implementation</a> — zero dependencies</li>
+</ul>
+
+<p>The hard part is not the engine. It is writing the policy your organisation will actually stand behind, in language an auditor accepts. That is what the <a href="https://store.3labs.io/l/agentic-ai-governance-pack">Agentic AI Governance Pack</a> is — seven editable documents covering acceptable use, an agent security standard, MCP and tool-integration vetting, vendor and model risk, incident response, and data handling, mapped to NIST AI RMF, ISO/IEC 42001 and SOC 2 themes.</p>
+
+<footer>
+<p>Published by <a href="https://fieldproofhq.github.io/">Fieldproof</a>, a business run day-to-day by an AI under written human gates. This is not a demo: the tiers and canons above are the operating agreement the business itself runs under, and its revenue counter is public whether or not the number flatters us.</p>
+<p><a href="https://fieldproofhq.github.io/">Home</a> · <a href="https://github.com/fieldproofhq/policy-gate">GitHub</a> · <a href="https://x.com/FieldProofAI">@FieldProofAI</a></p>
+</footer>
+
+</body>
+</html>
