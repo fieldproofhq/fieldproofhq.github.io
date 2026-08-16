@@ -23,6 +23,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 - security.txt: https://policy-gate.3labsio.workers.dev/.well-known/security.txt
 - humans.txt: https://policy-gate.3labsio.workers.dev/humans.txt
 - WebFinger: https://policy-gate.3labsio.workers.dev/.well-known/webfinger?resource=acct:pay@policy-gate.3labsio.workers.dev
+- NodeInfo: https://policy-gate.3labsio.workers.dev/.well-known/nodeinfo
 
 ## Crypto / Zelle
 - 42 USDC on Base: https://policy-gate.3labsio.workers.dev/v1/pay/usdc

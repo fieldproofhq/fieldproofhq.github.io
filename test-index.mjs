@@ -170,6 +170,15 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(openapi.paths["/.well-known/webfinger"].get);
   assert.match(llmsFull, /webfinger\?resource=/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/webfinger/);
+  const nodeIndex = JSON.parse(fs.readFileSync(new URL("./.well-known/nodeinfo", import.meta.url), "utf8"));
+  assert.ok(nodeIndex.links.some((link) => /\/nodeinfo\/2\.1$/.test(link.href)));
+  const node21 = JSON.parse(fs.readFileSync(new URL("./nodeinfo/2.1", import.meta.url), "utf8"));
+  assert.equal(node21.version, "2.1");
+  assert.equal(node21.metadata.payment, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.equal(payWellKnown.also.nodeinfo, "https://policy-gate.3labsio.workers.dev/.well-known/nodeinfo");
+  assert.ok(openapi.paths["/.well-known/nodeinfo"].get);
+  assert.match(llmsFull, /\/\.well-known\/nodeinfo/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/nodeinfo\/2\.1/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
