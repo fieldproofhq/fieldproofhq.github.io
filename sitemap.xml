@@ -1,63 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Same-host HTML pages only.
+
+  This file previously listed ~60 URLs including buy.stripe.com, store.3labs.io and
+  policy-gate.3labsio.workers.dev. A sitemap may only contain URLs on its own host; crawlers
+  discard cross-domain entries and a sitemap that is mostly discarded is a weak trust signal.
+  It also listed QR .png files, .uri payment strings and .well-known JSON — machine endpoints
+  that are already discoverable via llms.txt, .well-known/ and openapi.json, and that dilute
+  the pages actually worth ranking.
+
+  Most importantly it omitted agent-governance-reference.html entirely: our largest piece of
+  free, citable content and the page most likely to be found by someone searching for the
+  thing we do.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fieldproofhq.github.io/pay/</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/ethics.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/ethics/</loc></url>
-  <url><loc>https://buy.stripe.com/aFa9AUce6afPdHb0aF1sQ05</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/ethics</loc></url>
-  <url><loc>https://fieldproofhq.github.io/offer/</loc></url>
-  <url><loc>https://fieldproofhq.github.io/</loc></url>
-  <url><loc>https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00</loc></url>
-  <url><loc>https://store.3labs.io</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/pay</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/sponsor</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/agent-card.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/openapi.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/x402</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/ai-plugin.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/mcp.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/llms.txt</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/offer</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/quote</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/card.png</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/usdc.png</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/invoice</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/card.uri</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md</loc></url>
-  <url><loc>https://fieldproofhq.github.io/skills/pay/SKILL.md</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/skills.json</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/package.json</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/zelle.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/zelle.uri</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/zelle.png</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/zelle/</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/pack.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/pack.uri</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/tip-jar.uri</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/security.txt</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/security.txt</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/humans.txt</loc></url>
-  <url><loc>https://fieldproofhq.github.io/humans.txt</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/webfinger</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/webfinger</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/nodeinfo</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/nodeinfo/2.1</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/host-meta.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/host-meta.json</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/did.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/.well-known/did.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/package.json</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/card.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/invoice.json</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/btc.png</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/btc/</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/btc.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/usdc.uri</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/usdc/</loc></url>
-  <url><loc>https://fieldproofhq.github.io/pay/scan/</loc></url>
-  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/scan</loc></url>
-  <url><loc>https://fieldproofhq.github.io/llms-full.txt</loc></url>
+
+  <url>
+    <loc>https://fieldproofhq.github.io/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Free reference content: the pages worth ranking for. -->
+  <url>
+    <loc>https://fieldproofhq.github.io/agent-governance-reference.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/ethics/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://fieldproofhq.github.io/csuite/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/csuite/ciso/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/csuite/cto/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/csuite/cfo/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/csuite/coo/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/csuite/cmo/</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Payment surfaces: one canonical entry point rather than every rail and QR code. -->
+  <url>
+    <loc>https://fieldproofhq.github.io/offer/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fieldproofhq.github.io/pay/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
