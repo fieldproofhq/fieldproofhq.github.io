@@ -199,6 +199,13 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(openapi.paths["/.well-known/host-meta.json"].get);
   assert.match(llmsFull, /host-meta\.json/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/host-meta\.json/);
+  const didDoc = JSON.parse(fs.readFileSync(new URL("./.well-known/did.json", import.meta.url), "utf8"));
+  assert.equal(didDoc.id, "did:web:fieldproofhq.github.io");
+  assert.ok(didDoc.service.some((svc) => svc.id.endsWith("#stripe") && svc.type === "PaymentService" && svc.serviceEndpoint === "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"));
+  assert.equal(payWellKnown.also.did, "https://policy-gate.3labsio.workers.dev/.well-known/did.json");
+  assert.ok(openapi.paths["/.well-known/did.json"].get);
+  assert.match(llmsFull, /did\.json/);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/did\.json/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");

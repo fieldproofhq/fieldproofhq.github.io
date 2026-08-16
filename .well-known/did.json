@@ -1,0 +1,41 @@
+{
+  "@context": ["https://www.w3.org/ns/did/v1"],
+  "id": "did:web:fieldproofhq.github.io",
+  "alsoKnownAs": [
+    "https://fieldproofhq.github.io/",
+    "acct:pay@fieldproofhq.github.io",
+    "did:web:policy-gate.3labsio.workers.dev"
+  ],
+  "service": [
+    {
+      "id": "did:web:fieldproofhq.github.io#stripe",
+      "type": "PaymentService",
+      "serviceEndpoint": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+    },
+    {
+      "id": "did:web:fieldproofhq.github.io#invoice",
+      "type": "PaymentService",
+      "serviceEndpoint": "https://policy-gate.3labsio.workers.dev/v1/invoice"
+    },
+    {
+      "id": "did:web:fieldproofhq.github.io#offer",
+      "type": "PaymentService",
+      "serviceEndpoint": "https://policy-gate.3labsio.workers.dev/v1/offer"
+    },
+    {
+      "id": "did:web:fieldproofhq.github.io#card",
+      "type": "PaymentService",
+      "serviceEndpoint": "https://policy-gate.3labsio.workers.dev/v1/pay/card.uri"
+    },
+    {
+      "id": "did:web:fieldproofhq.github.io#usdc",
+      "type": "PaymentService",
+      "serviceEndpoint": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri"
+    },
+    {
+      "id": "did:web:fieldproofhq.github.io#btc",
+      "type": "PaymentService",
+      "serviceEndpoint": "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri"
+    }
+  ]
+}

@@ -26,6 +26,7 @@
     "humans": "https://policy-gate.3labsio.workers.dev/humans.txt",
     "webfinger": "https://policy-gate.3labsio.workers.dev/.well-known/webfinger?resource=acct:pay@policy-gate.3labsio.workers.dev",
     "nodeinfo": "https://policy-gate.3labsio.workers.dev/.well-known/nodeinfo",
-    "host_meta": "https://policy-gate.3labsio.workers.dev/.well-known/host-meta.json"
+    "host_meta": "https://policy-gate.3labsio.workers.dev/.well-known/host-meta.json",
+    "did": "https://policy-gate.3labsio.workers.dev/.well-known/did.json"
   }
 }
