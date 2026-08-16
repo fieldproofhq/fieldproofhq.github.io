@@ -3,6 +3,7 @@
   "title": "Fractional Chief Marketing Officer",
   "version": "1.1",
   "priceUsd": 39,
+  "checkoutUsd42": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
   "wordKit": "https://store.3labs.io/l/fractional-cmo-launch-kit",
   "system": "https://fieldproofhq.github.io/csuite/cmo/SYSTEM.md",
   "audience": ["human practitioner", "LLM", "autonomous agent"],

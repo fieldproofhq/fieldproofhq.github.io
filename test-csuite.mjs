@@ -17,6 +17,7 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
     const kit = JSON.parse(fs.readFileSync(path.join(root, "csuite", role, "kit.json"), "utf8"));
     assert.match(system, /One-sentence position/);
     assert.ok(kit.role);
+    assert.equal(kit.checkoutUsd42, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
     assert.ok((kit.audience || []).includes("LLM") || (kit.audience || []).includes("autonomous agent"));
     const roleHtml = fs.readFileSync(path.join(root, "csuite", role, "index.html"), "utf8");
     assert.match(roleHtml, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);

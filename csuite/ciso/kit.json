@@ -5,6 +5,7 @@
   "system": "https://fieldproofhq.github.io/csuite/ciso/SYSTEM.md",
   "runtime": "https://policy-gate.3labsio.workers.dev",
   "source": "https://github.com/fieldproofhq/policy-gate",
+  "checkoutUsd42": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
   "audience": ["human practitioner", "LLM", "autonomous agent"],
   "tiers": { "0": "allow", "1": "allow", "2": "require_approval", "3": "deny" },
   "gates": ["expanding allow", "disabling the gate", "unreviewed MCP connect"]

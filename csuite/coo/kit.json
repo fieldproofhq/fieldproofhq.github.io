@@ -3,6 +3,7 @@
   "title": "Fractional Chief Operating Officer",
   "version": "1.0",
   "system": "https://fieldproofhq.github.io/csuite/coo/SYSTEM.md",
+  "checkoutUsd42": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
   "audience": ["human practitioner", "LLM", "autonomous agent"],
   "loop": ["observe", "propose", "independently verify", "record", "distill"],
   "gates": ["money", "accounts", "CAPTCHAs", "deletions", "purchases", "unsupervised publish"]
