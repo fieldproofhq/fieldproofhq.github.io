@@ -98,7 +98,17 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(llmsFull, /fieldproofhq\.github\.io\/offer\//);
   assert.match(llmsFull, /policy-gate\.3labsio\.workers\.dev\/v1\/offer/);
   assert.match(llmsFull, /3labsio@gmail.com/);
+  assert.match(llmsFull, /\/v1\/pay\/usdc\.uri/);
+  assert.match(llmsFull, /\/v1\/pay\/btc\.uri/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/llms-full\.txt/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/usdc\.uri/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/btc\.uri/);
+  const usdcUri = fs.readFileSync(new URL("./pay/usdc.uri", import.meta.url), "utf8").trim();
+  assert.equal(usdcUri, "ethereum:0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913@8453/transfer?address=0x07C2383008a9ed30581f27Db5531E19411c94fb3&uint256=42000000");
+  assert.equal(payWellKnown.also.usdc_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri");
+  assert.equal(payWellKnown.also.btc_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri");
+  assert.ok(openapi.paths["/v1/pay/usdc.uri"].get);
+  assert.ok(openapi.paths["/v1/pay/btc.uri"].get);
   const funding = fs.readFileSync(new URL("./.github/FUNDING.yml", import.meta.url), "utf8");
   assert.match(funding, /fieldproofhq\.github\.io\/offer\//);
   assert.match(funding, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);

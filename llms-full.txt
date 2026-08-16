@@ -16,8 +16,10 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 
 ## Crypto / Zelle
 - 42 USDC on Base: https://policy-gate.3labsio.workers.dev/v1/pay/usdc
+- 42 USDC EIP-681 (text/uri-list): https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri
 - POST /v1/sponsor x402: https://policy-gate.3labsio.workers.dev/v1/sponsor
 - Bitcoin: https://policy-gate.3labsio.workers.dev/v1/pay/btc
+- Bitcoin BIP-21 (text/uri-list): https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri
 - Zelle $42 to 3labsio@gmail.com: https://policy-gate.3labsio.workers.dev/v1/pay/zelle
 
 Observer: https://policy-gate.3labsio.workers.dev/v1/received

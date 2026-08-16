@@ -7,7 +7,9 @@
   "methods": ["card", "cashapp", "link", "us_bank_account", "klarna", "afterpay_clearpay", "affirm"],
   "also": {
     "usdc": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc",
+    "usdc_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri",
     "btc": "https://policy-gate.3labsio.workers.dev/v1/pay/btc",
+    "btc_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri",
     "zelle": "https://policy-gate.3labsio.workers.dev/v1/pay/zelle",
     "store": "https://store.3labs.io"
   }

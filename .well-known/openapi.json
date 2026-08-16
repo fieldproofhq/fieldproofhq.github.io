@@ -22,6 +22,20 @@
         "responses": { "302": { "description": "Redirect to Stripe" } }
       }
     },
+    "/v1/pay/usdc.uri": {
+      "get": {
+        "operationId": "payUsdcUri",
+        "summary": "text/uri-list EIP-681 invoice for 42 USDC on Base",
+        "responses": { "200": { "description": "text/uri-list; one ethereum: transfer URI" } }
+      }
+    },
+    "/v1/pay/btc.uri": {
+      "get": {
+        "operationId": "payBtcUri",
+        "summary": "text/uri-list BIP-21 invoice for ~$42 BTC",
+        "responses": { "200": { "description": "text/uri-list; one bitcoin: URI with amount" } }
+      }
+    },
     "/v1/sponsor": {
       "post": {
         "operationId": "sponsor42",
