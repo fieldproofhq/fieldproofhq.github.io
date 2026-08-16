@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "name": "fieldproof-policy-gate",
+  "description": "Deterministic policy verdicts plus a $42 checkout (card or 42 USDC).",
+  "transport": "streamable-http",
+  "url": "https://policy-gate.3labsio.workers.dev/mcp",
+  "tools": ["policy_example", "policy_rules", "policy_check", "first_42_sponsor"],
+  "payment": {
+    "scheme": "stripe",
+    "network": "fiat",
+    "amountUsd": 42,
+    "asset": "USD",
+    "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+  },
+  "sponsor": "https://policy-gate.3labsio.workers.dev/v1/sponsor"
+}

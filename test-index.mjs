@@ -72,4 +72,10 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.equal(plugin["x-payment"].url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
   assert.match(plugin.api.url, /openapi\.json$/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/ai-plugin\.json/);
+  const mcp = JSON.parse(fs.readFileSync(new URL("./.well-known/mcp.json", import.meta.url), "utf8"));
+  assert.equal(mcp.transport, "streamable-http");
+  assert.match(mcp.url, /policy-gate\.3labsio\.workers\.dev\/mcp$/);
+  assert.ok(mcp.tools.includes("first_42_sponsor"));
+  assert.equal(mcp.payment.url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/mcp\.json/);
 });
