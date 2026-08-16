@@ -30,4 +30,8 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   const llms = fs.readFileSync(new URL("./llms.txt", import.meta.url), "utf8");
   assert.match(llms, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(llms, /fieldproofhq\.github\.io\/pay\//);
+  const payWellKnown = JSON.parse(fs.readFileSync(new URL("./.well-known/pay", import.meta.url), "utf8"));
+  assert.equal(payWellKnown.price_usd, 42);
+  assert.equal(payWellKnown.url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.ok(payWellKnown.methods.includes("affirm"));
 });

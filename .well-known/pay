@@ -1,0 +1,14 @@
+{
+  "name": "Fieldproof",
+  "price_usd": 42,
+  "currency": "USD",
+  "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+  "short_url": "https://fieldproofhq.github.io/pay/",
+  "methods": ["card", "cashapp", "link", "us_bank_account", "klarna", "afterpay_clearpay", "affirm"],
+  "also": {
+    "usdc": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc",
+    "btc": "https://policy-gate.3labsio.workers.dev/v1/pay/btc",
+    "zelle": "https://policy-gate.3labsio.workers.dev/v1/pay/zelle",
+    "store": "https://store.3labs.io"
+  }
+}
