@@ -45,4 +45,17 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(sitemap, /fieldproofhq\.github\.io\/pay\//);
   assert.match(sitemap, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/sponsor/);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/agent-card\.json/);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/openapi\.json/);
+  const agentCard = JSON.parse(fs.readFileSync(new URL("./.well-known/agent-card.json", import.meta.url), "utf8"));
+  assert.equal(agentCard.card, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.ok(agentCard.skills.some((s) => s.id === "pay-42"));
+  const agentLegacy = JSON.parse(fs.readFileSync(new URL("./.well-known/agent.json", import.meta.url), "utf8"));
+  assert.equal(agentLegacy.card, agentCard.card);
+  const openapi = JSON.parse(fs.readFileSync(new URL("./openapi.json", import.meta.url), "utf8"));
+  assert.equal(openapi.openapi, "3.1.0");
+  assert.equal(openapi.externalDocs.url, agentCard.card);
+  assert.ok(openapi.paths["/v1/sponsor"].post);
+  const openapiWellKnown = JSON.parse(fs.readFileSync(new URL("./.well-known/openapi.json", import.meta.url), "utf8"));
+  assert.equal(openapiWellKnown.externalDocs.url, agentCard.card);
 });

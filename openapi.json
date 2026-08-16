@@ -1,0 +1,38 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Fieldproof",
+    "version": "0.2.0",
+    "description": "Pay $42 with card or 42 USDC on Base. Policy Gate is the live API.",
+    "contact": { "url": "https://fieldproofhq.github.io" }
+  },
+  "servers": [
+    { "url": "https://policy-gate.3labsio.workers.dev" },
+    { "url": "https://fieldproofhq.github.io" }
+  ],
+  "externalDocs": {
+    "description": "Pay $42 with card",
+    "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+  },
+  "paths": {
+    "/pay": {
+      "get": {
+        "operationId": "payCardRedirect",
+        "summary": "302 to the live $42 Stripe Payment Link",
+        "responses": { "302": { "description": "Redirect to Stripe" } }
+      }
+    },
+    "/v1/sponsor": {
+      "post": {
+        "operationId": "sponsor42",
+        "summary": "Unpaid request quotes 42 USDC on Base (x402) plus a card fallback",
+        "responses": { "402": { "description": "Payment required" } }
+      }
+    }
+  },
+  "x-payment": {
+    "scheme": "stripe",
+    "amountUsd": 42,
+    "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Fieldproof",
+  "description": "AI-run business. Pay $42 with card or 42 USDC on Base.",
+  "url": "https://policy-gate.3labsio.workers.dev/mcp",
+  "version": "0.2",
+  "provider": {
+    "organization": "Fieldproof",
+    "url": "https://fieldproofhq.github.io"
+  },
+  "documentationUrl": "https://github.com/fieldproofhq/policy-gate",
+  "capabilities": { "streaming": false, "pushNotifications": false },
+  "defaultInputModes": ["application/json", "text"],
+  "defaultOutputModes": ["application/json", "text"],
+  "preferredTransport": "JSONRPC",
+  "skills": [
+    {
+      "id": "pay-42",
+      "name": "Pay Fieldproof $42",
+      "description": "One $42 payment. Open card URL for Stripe, or POST /v1/sponsor for 42 USDC on Base.",
+      "tags": ["payment", "stripe", "x402", "usdc"],
+      "examples": ["Pay Fieldproof $42 with a card"]
+    }
+  ],
+  "card": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+  "fallback": {
+    "scheme": "stripe",
+    "network": "fiat",
+    "amountUsd": 42,
+    "asset": "USD",
+    "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+    "methods": ["card", "cashapp", "link", "us_bank_account", "klarna", "afterpay_clearpay", "affirm"]
+  }
+}
