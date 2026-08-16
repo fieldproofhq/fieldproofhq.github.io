@@ -99,4 +99,7 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(llmsFull, /policy-gate\.3labsio\.workers\.dev\/v1\/offer/);
   assert.match(llmsFull, /3labsio@gmail.com/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/llms-full\.txt/);
+  const funding = fs.readFileSync(new URL("./.github/FUNDING.yml", import.meta.url), "utf8");
+  assert.match(funding, /fieldproofhq\.github\.io\/offer\//);
+  assert.match(funding, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
 });
