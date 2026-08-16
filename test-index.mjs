@@ -78,4 +78,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(mcp.tools.includes("first_42_sponsor"));
   assert.equal(mcp.payment.url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/mcp\.json/);
+  const wellKnownLlms = fs.readFileSync(new URL("./.well-known/llms.txt", import.meta.url), "utf8");
+  assert.match(wellKnownLlms, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(wellKnownLlms, /policy-gate\.3labsio\.workers\.dev\/v1\/offer/);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/llms\.txt/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/offer/);
 });
