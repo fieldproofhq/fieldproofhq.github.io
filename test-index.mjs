@@ -119,6 +119,13 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(openapi.paths["/skills/pay/SKILL.md"].get);
   assert.equal(payWellKnown.also.skill, "https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md");
   assert.match(sitemap, /skills\/pay\/SKILL\.md/);
+  const ghPkg = JSON.parse(fs.readFileSync(new URL("./package.json", import.meta.url), "utf8"));
+  assert.ok(ghPkg.funding.some((item) => item.url === "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"));
+  assert.ok(ghPkg.funding.some((item) => /fieldproofhq\.github\.io\/offer\//.test(item.url)));
+  assert.equal(payWellKnown.also.funding, "https://policy-gate.3labsio.workers.dev/package.json");
+  assert.ok(openapi.paths["/package.json"].get);
+  assert.match(llmsFull, /\/package\.json/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/package\.json/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");

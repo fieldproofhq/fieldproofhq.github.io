@@ -12,6 +12,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 - Multi-rail invoice (HTTP 200): https://policy-gate.3labsio.workers.dev/v1/invoice
 - MCP pay tool (first_42_sponsor): https://policy-gate.3labsio.workers.dev/mcp
 - Agent skill: https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md
+- npm funding (package.json): https://policy-gate.3labsio.workers.dev/package.json
 
 ## Store
 - Store: https://store.3labs.io

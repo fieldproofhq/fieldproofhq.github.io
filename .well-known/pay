@@ -8,6 +8,7 @@
   "also": {
     "invoice": "https://policy-gate.3labsio.workers.dev/v1/invoice",
     "skill": "https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md",
+    "funding": "https://policy-gate.3labsio.workers.dev/package.json",
     "card_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/card.uri",
     "usdc": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc",
     "usdc_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri",

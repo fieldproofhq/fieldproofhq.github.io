@@ -19,6 +19,8 @@
   <url><loc>https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md</loc></url>
   <url><loc>https://fieldproofhq.github.io/skills/pay/SKILL.md</loc></url>
   <url><loc>https://fieldproofhq.github.io/.well-known/skills.json</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/package.json</loc></url>
+  <url><loc>https://fieldproofhq.github.io/package.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/card.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/invoice.json</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri</loc></url>

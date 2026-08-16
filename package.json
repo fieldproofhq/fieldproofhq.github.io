@@ -1,0 +1,10 @@
+{
+  "name": "@fieldproofhq/github-io",
+  "private": true,
+  "description": "Fieldproof public site. Pay $42 with card or 42 USDC on Base.",
+  "homepage": "https://fieldproofhq.github.io/offer/",
+  "funding": [
+    { "type": "individual", "url": "https://fieldproofhq.github.io/offer/" },
+    { "type": "stripe", "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00" }
+  ]
+}
