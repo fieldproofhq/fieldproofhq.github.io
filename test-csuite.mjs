@@ -39,7 +39,13 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
     assert.match(roleHtml, /rel="payment"/);
     assert.match(roleHtml, /Get the \$42 pack/);
     assert.match(roleHtml, /http-equiv="refresh"/);
-    assert.match(roleHtml, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+    if (role === "cmo") {
+      assert.match(roleHtml, /fractional-cmo-launch-kit\?wanted=true/);
+      assert.match(roleHtml, /\/v1\/pay\/scan/);
+      assert.match(roleHtml, /location\.replace\("https:\/\/store\.3labs\.io\/l\/fractional-cmo-launch-kit\?wanted=true"\)/);
+    } else {
+      assert.match(roleHtml, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+    }
   }
   const cmo = fs.readFileSync(path.join(root, "csuite", "cmo", "SYSTEM.md"), "utf8");
   assert.match(cmo, /Homepage test/);
