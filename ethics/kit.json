@@ -1,0 +1,12 @@
+{
+  "role": "ETHICS",
+  "title": "Fieldproof Ethics Check",
+  "version": "1.0",
+  "system": "https://fieldproofhq.github.io/ethics/SYSTEM.md",
+  "canons": "https://policy-gate.3labsio.workers.dev/v1/canons",
+  "checkoutUsd42": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+  "audience": ["human practitioner", "LLM", "autonomous agent"],
+  "canonsList": ["no-deception", "daylight", "consent", "reversibility", "proportion", "dignity", "unhurried"],
+  "verdicts": ["clear", "reflect", "stop"],
+  "gates": ["overriding a stop", "publishing a being without consent", "expanding who an agent may target"]
+}
