@@ -9,4 +9,5 @@
   <url><loc>https://fieldproofhq.github.io/.well-known/agent-card.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/openapi.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/.well-known/x402</loc></url>
+  <url><loc>https://fieldproofhq.github.io/.well-known/ai-plugin.json</loc></url>
 </urlset>

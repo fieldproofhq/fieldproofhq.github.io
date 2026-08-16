@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Fieldproof",
+  "name_for_model": "fieldproof",
+  "description_for_human": "Pay Fieldproof $42 with card or 42 USDC on Base. Policy verdicts for agents.",
+  "description_for_model": "Fieldproof Policy Gate. Unpaid POST /v1/sponsor quotes 42 USDC on Base. Card checkout is x-payment.url. OpenAPI at /openapi.json.",
+  "auth": { "type": "none" },
+  "api": { "type": "openapi", "url": "https://fieldproofhq.github.io/openapi.json" },
+  "logo_url": "https://fieldproofhq.github.io/governance-pack-cover.png",
+  "contact_email": "3labsio@gmail.com",
+  "legal_info_url": "https://fieldproofhq.github.io",
+  "x-payment": {
+    "scheme": "stripe",
+    "network": "fiat",
+    "amountUsd": 42,
+    "asset": "USD",
+    "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+  }
+}

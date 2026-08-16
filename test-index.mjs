@@ -66,4 +66,10 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.equal(sponsor.accepts[0].amount, "42000000");
   assert.equal(sponsor.accepts[0].payTo, "0x07C2383008a9ed30581f27Db5531E19411c94fb3");
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/x402/);
+  const plugin = JSON.parse(fs.readFileSync(new URL("./.well-known/ai-plugin.json", import.meta.url), "utf8"));
+  assert.equal(plugin.schema_version, "v1");
+  assert.equal(plugin.auth.type, "none");
+  assert.equal(plugin["x-payment"].url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.match(plugin.api.url, /openapi\.json$/);
+  assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/ai-plugin\.json/);
 });
