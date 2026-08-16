@@ -2,6 +2,7 @@
 
 Pay $42: https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
 Short pay URL: https://fieldproofhq.github.io/pay/
+Instant card: https://fieldproofhq.github.io/offer/
 Agent quote: https://policy-gate.3labsio.workers.dev/v1/offer
 API pay URL: https://policy-gate.3labsio.workers.dev/pay
 Card, Cash App, Link, US bank debit, Klarna, Afterpay, Affirm.
