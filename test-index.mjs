@@ -39,4 +39,10 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.equal(payWellKnown.price_usd, 42);
   assert.equal(payWellKnown.url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
   assert.ok(payWellKnown.methods.includes("affirm"));
+  const robots = fs.readFileSync(new URL("./robots.txt", import.meta.url), "utf8");
+  assert.match(robots, /Sitemap: https:\/\/fieldproofhq\.github\.io\/sitemap\.xml/);
+  const sitemap = fs.readFileSync(new URL("./sitemap.xml", import.meta.url), "utf8");
+  assert.match(sitemap, /fieldproofhq\.github\.io\/pay\//);
+  assert.match(sitemap, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/sponsor/);
 });
