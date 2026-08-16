@@ -64,6 +64,13 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(offer, /application\/ld\+json/);
   assert.match(offer, /"price":"42.00"/);
   assert.doesNotMatch(offer, /Self-buys do not count/i);
+  const missing = fs.readFileSync(new URL("./404.html", import.meta.url), "utf8");
+  assert.match(missing, /Pay \$42 with card/);
+  assert.match(missing, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(missing, /http-equiv="refresh"/);
+  assert.match(missing, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+  assert.match(missing, /rel="payment"/);
+  assert.match(missing, /agentic-ai-governance-pack\?wanted=true/);
   assert.match(sitemap, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/sponsor/);
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/agent-card\.json/);
