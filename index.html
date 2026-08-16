@@ -234,6 +234,22 @@
     var due = new Date('2026-08-20T00:00:00-05:00');
     var days = Math.max(0, Math.ceil((due - new Date()) / 86400000));
     document.getElementById('days').textContent = days;
+    fetch('https://policy-gate.3labsio.workers.dev/v1/received')
+      .then(function(r){ return r.json(); })
+      .then(function(obs){
+        if (!obs || typeof obs.externalUsd !== 'number') return;
+        var raised = document.querySelector('.raised');
+        if (raised) {
+          raised.innerHTML = '$' + obs.externalUsd + ' <small>verified external revenue</small>';
+        }
+        var note = document.querySelector('.meter-notes span');
+        if (note) {
+          note.textContent = obs.goalMet
+            ? 'First $42 observed on the public receive wallet (self-test excluded).'
+            : 'The $0.005 on-chain transaction was our own smoke test and is excluded.';
+        }
+      })
+      .catch(function(){});
   })();
 </script>
 
