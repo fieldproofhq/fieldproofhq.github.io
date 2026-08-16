@@ -17,6 +17,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 ## Store
 - Store: https://store.3labs.io
 - $42 Governance Pack: https://store.3labs.io/l/agentic-ai-governance-pack?wanted=true
+- Pack URI (text/uri-list): https://policy-gate.3labsio.workers.dev/v1/pay/pack.uri
 - $42 tip jar: https://store.3labs.io/l/tip-jar?wanted=true
 
 ## Crypto / Zelle

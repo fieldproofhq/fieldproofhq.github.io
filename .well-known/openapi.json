@@ -57,6 +57,13 @@
         "responses": { "200": { "description": "text/uri-list; one ethereum: transfer URI" } }
       }
     },
+    "/v1/pay/pack.uri": {
+      "get": {
+        "operationId": "payPackUri",
+        "summary": "text/uri-list of the live $42 Gumroad Governance Pack checkout",
+        "responses": { "200": { "description": "text/uri-list; one store.3labs.io pack URI" } }
+      }
+    },
     "/v1/pay/zelle.uri": {
       "get": {
         "operationId": "payZelleUri",
