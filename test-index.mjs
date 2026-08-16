@@ -144,6 +144,8 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(skill, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(skill, /\/v1\/pay\/card\.uri/);
   assert.match(skill, /\/v1\/invoice/);
+  assert.match(skill, /\/v1\/pay\/pack\.uri/);
+  assert.doesNotMatch(skill, /auto-opens Stripe/);
   assert.doesNotMatch(skill, /Self-buys do not count/i);
   const skillsDoc = JSON.parse(fs.readFileSync(new URL("./.well-known/skills.json", import.meta.url), "utf8"));
   assert.equal(skillsDoc.skills[0].amountUsd, 42);
