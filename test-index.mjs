@@ -12,6 +12,8 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(html, /agentic-ai-governance-pack\?wanted=true/);
   assert.match(html, /tip-jar\?wanted=true/);
   assert.match(html, /Browse the store/);
+  assert.match(html, /Pay \$42 with card/);
+  assert.match(html, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(html, /fractional-cmo-launch-kit\?wanted=true/);
   assert.match(html, /csuite\/cmo/);
   assert.doesNotMatch(html, /Self-buys do not count/i);
