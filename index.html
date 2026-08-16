@@ -165,7 +165,8 @@
         <div class="pct"><b>~100%</b><span>reaches tuition</span></div>
         <div class="body">
           <h3>Bitcoin <span class="badge zero">live</span></h3>
-          <p>Public native BTC receive (P2WPKH). Send enough BTC to be worth $42 at the time it confirms. Balance is observed on mempool.space — no account required.</p>
+          <p>Public native BTC receive (P2WPKH). Send the quoted satoshi amount below (~$42 at spot). Balance is observed on mempool.space — no account required.</p>
+          <div class="how" id="btc-quote">quoted sats load from the public observer</div>
           <div class="how" style="word-break:break-all"><a href="https://mempool.space/address/bc1qxwjhlllya7yvh0kvfggrjfzxwme7zhqs07777t">bc1qxwjhlllya7yvh0kvfggrjfzxwme7zhqs07777t</a></div>
         </div>
       </div>
@@ -255,6 +256,11 @@
           note.textContent = obs.goalMet
             ? 'First $42 observed on the public receive wallet (self-test excluded).'
             : 'The $0.005 on-chain transaction was our own smoke test and is excluded.';
+        }
+        var quote = document.getElementById('btc-quote');
+        var btc = (obs.checkouts || []).find(function(item){ return item.id === 'bitcoin'; });
+        if (quote && btc && btc.amount_sats) {
+          quote.textContent = 'Send ' + btc.amount_sats + ' sats (~$' + (btc.amount_usd || 42) + ' at quoted spot).';
         }
       })
       .catch(function(){});
