@@ -97,6 +97,13 @@
         "responses": { "200": { "description": "text/uri-list; one Stripe checkout URI" } }
       }
     },
+    "/v1/pay/usdc.png": {
+      "get": {
+        "operationId": "payUsdcQr",
+        "summary": "302 to a scannable QR of the 42 USDC EIP-681 invoice on Base",
+        "responses": { "302": { "description": "Redirect to QR image of the 42 USDC transfer" } }
+      }
+    },
     "/v1/pay/usdc.uri": {
       "get": {
         "operationId": "payUsdcUri",

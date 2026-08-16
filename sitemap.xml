@@ -16,6 +16,7 @@
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/offer</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/quote</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/card.png</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/usdc.png</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/invoice</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/card.uri</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md</loc></url>
