@@ -29,6 +29,13 @@
         "responses": { "200": { "description": "JSON invoice" } }
       }
     },
+    "/v1/pay/card.uri": {
+      "get": {
+        "operationId": "payCardUri",
+        "summary": "text/uri-list of the live $42 Stripe Payment Link",
+        "responses": { "200": { "description": "text/uri-list; one Stripe checkout URI" } }
+      }
+    },
     "/v1/pay/usdc.uri": {
       "get": {
         "operationId": "payUsdcUri",

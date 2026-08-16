@@ -101,6 +101,12 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(llmsFull, /\/v1\/pay\/usdc\.uri/);
   assert.match(llmsFull, /\/v1\/pay\/btc\.uri/);
   assert.match(llmsFull, /\/v1\/invoice/);
+  assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
+  const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
+  assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.equal(payWellKnown.also.card_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/card.uri");
+  assert.ok(openapi.paths["/v1/pay/card.uri"].get);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/card\.uri/);
   const invoiceDoc = JSON.parse(fs.readFileSync(new URL("./invoice.json", import.meta.url), "utf8"));
   assert.equal(invoiceDoc.amountUsd, 42);
   assert.equal(invoiceDoc.card, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");

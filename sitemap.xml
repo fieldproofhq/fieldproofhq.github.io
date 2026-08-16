@@ -15,6 +15,8 @@
   <url><loc>https://fieldproofhq.github.io/.well-known/llms.txt</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/offer</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/invoice</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/card.uri</loc></url>
+  <url><loc>https://fieldproofhq.github.io/pay/card.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/invoice.json</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri</loc></url>
