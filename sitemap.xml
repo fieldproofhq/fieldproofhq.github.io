@@ -57,5 +57,7 @@
   <url><loc>https://fieldproofhq.github.io/pay/btc.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/usdc.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/usdc/</loc></url>
+  <url><loc>https://fieldproofhq.github.io/pay/scan/</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/v1/pay/scan</loc></url>
   <url><loc>https://fieldproofhq.github.io/llms-full.txt</loc></url>
 </urlset>
