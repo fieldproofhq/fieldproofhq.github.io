@@ -10,3 +10,4 @@ Card, Cash App, Link, US bank debit, Klarna, Afterpay, Affirm.
 Store: https://store.3labs.io
 USDC/BTC/Zelle: https://policy-gate.3labsio.workers.dev/v1/pay
 C-suite contracts: https://fieldproofhq.github.io/csuite/
+Full list: https://fieldproofhq.github.io/llms-full.txt
