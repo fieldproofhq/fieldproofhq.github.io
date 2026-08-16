@@ -29,6 +29,13 @@
         "responses": { "200": { "description": "JSON invoice" } }
       }
     },
+    "/skills/pay/SKILL.md": {
+      "get": {
+        "operationId": "paySkill",
+        "summary": "Agent skill: how to pay Fieldproof $42 on every live rail",
+        "responses": { "200": { "description": "text/markdown skill with live checkout URLs" } }
+      }
+    },
     "/v1/pay/card.uri": {
       "get": {
         "operationId": "payCardUri",

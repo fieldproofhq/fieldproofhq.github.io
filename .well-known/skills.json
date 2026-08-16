@@ -1,0 +1,12 @@
+{
+  "skills": [
+    {
+      "id": "fieldproof-pay-42",
+      "name": "Pay Fieldproof $42",
+      "url": "https://fieldproofhq.github.io/skills/pay/SKILL.md",
+      "live": "https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md",
+      "amountUsd": 42,
+      "card": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+    }
+  ]
+}
