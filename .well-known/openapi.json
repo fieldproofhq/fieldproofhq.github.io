@@ -57,6 +57,13 @@
         "responses": { "200": { "description": "text/uri-list; one ethereum: transfer URI" } }
       }
     },
+    "/v1/pay/tip-jar.uri": {
+      "get": {
+        "operationId": "payTipUri",
+        "summary": "text/uri-list of the live $42 Gumroad tip-jar checkout",
+        "responses": { "200": { "description": "text/uri-list; one store.3labs.io tip-jar URI" } }
+      }
+    },
     "/v1/pay/pack.uri": {
       "get": {
         "operationId": "payPackUri",

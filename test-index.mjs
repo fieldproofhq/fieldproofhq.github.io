@@ -138,6 +138,12 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(openapi.paths["/v1/pay/pack.uri"].get);
   assert.match(llmsFull, /\/v1\/pay\/pack\.uri/);
   assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/pack\.uri/);
+  const tipUri = fs.readFileSync(new URL("./pay/tip-jar.uri", import.meta.url), "utf8").trim();
+  assert.equal(tipUri, "https://store.3labs.io/l/tip-jar?wanted=true");
+  assert.equal(payWellKnown.also.tip_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri");
+  assert.ok(openapi.paths["/v1/pay/tip-jar.uri"].get);
+  assert.match(llmsFull, /\/v1\/pay\/tip-jar\.uri/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/tip-jar\.uri/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
