@@ -30,6 +30,8 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(reference, /agentic-ai-governance-pack\?wanted=true/);
   assert.match(reference, /rel="payment"/);
   assert.match(reference, /Pay \$42 with card/);
+  assert.match(reference, /http-equiv="refresh"/);
+  assert.match(reference, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
   const pay = fs.readFileSync(new URL("./pay/index.html", import.meta.url), "utf8");
   assert.match(pay, /Pay \$42 with card/);
   assert.match(pay, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);

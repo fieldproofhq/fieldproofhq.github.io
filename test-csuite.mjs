@@ -14,6 +14,9 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
   assert.match(index, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.match(index, /Pay \$42 with card/);
   assert.match(index, /Get the \$42 pack/);
+  assert.match(index, /http-equiv="refresh"/);
+  assert.match(index, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+  assert.match(index, /rel="payment"/);
   for (const role of ["cmo", "cfo", "coo", "cto", "ciso"]) {
     const system = fs.readFileSync(path.join(root, "csuite", role, "SYSTEM.md"), "utf8");
     const kit = JSON.parse(fs.readFileSync(path.join(root, "csuite", role, "kit.json"), "utf8"));
@@ -27,6 +30,8 @@ test("virtual C-suite contracts are fetchable for humans and agents", () => {
     assert.match(roleHtml, /agentic-ai-governance-pack\?wanted=true/);
     assert.match(roleHtml, /rel="payment"/);
     assert.match(roleHtml, /Get the \$42 pack/);
+    assert.match(roleHtml, /http-equiv="refresh"/);
+    assert.match(roleHtml, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
   }
   const cmo = fs.readFileSync(path.join(root, "csuite", "cmo", "SYSTEM.md"), "utf8");
   assert.match(cmo, /Homepage test/);
