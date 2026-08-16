@@ -15,8 +15,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(html, /Pay \$42 with card/);
   assert.match(html, /class="cta" href="https:\/\/fieldproofhq\.github\.io\/offer\/">Pay \$42/);
   assert.match(html, /<div class="hero">[\s\S]*class="cta" href="https:\/\/fieldproofhq\.github\.io\/offer\/">Pay \$42/);
-  assert.match(html, /http-equiv="refresh"/);
-  assert.match(html, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+  assert.doesNotMatch(html, /http-equiv="refresh"/);
+  assert.doesNotMatch(html, /location\.replace\("https:\/\/buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00"\)/);
+  assert.match(html, /\/v1\/pay\/scan/);
   assert.match(html, /fieldproofhq\.github\.io\/pay\//);
   assert.match(html, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
   assert.doesNotMatch(html, /Self-funded tests never count/i);
