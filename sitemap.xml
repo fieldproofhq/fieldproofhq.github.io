@@ -8,4 +8,5 @@
   <url><loc>https://policy-gate.3labsio.workers.dev/v1/sponsor</loc></url>
   <url><loc>https://fieldproofhq.github.io/.well-known/agent-card.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/openapi.json</loc></url>
+  <url><loc>https://fieldproofhq.github.io/.well-known/x402</loc></url>
 </urlset>

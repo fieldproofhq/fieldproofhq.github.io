@@ -1,0 +1,60 @@
+{
+  "x402Version": 2,
+  "serviceName": "Fieldproof Policy Gate",
+  "description": "Deterministic allow / require_approval / deny verdicts. Pay $42 with card or 42 USDC on Base.",
+  "tags": ["governance", "policy", "safety", "agents"],
+  "fallback": {
+    "scheme": "stripe",
+    "network": "fiat",
+    "amountUsd": 42,
+    "asset": "USD",
+    "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00",
+    "methods": ["card", "cashapp", "link", "us_bank_account", "klarna", "afterpay_clearpay", "affirm"],
+    "note": "If you cannot settle USDC on Base, pay $42 with card. One payment meets the first-$42 bar."
+  },
+  "resources": [
+    {
+      "url": "https://policy-gate.3labsio.workers.dev/v1/sponsor",
+      "method": "POST",
+      "mimeType": "application/json",
+      "description": "One 42 USDC x402 settlement that meets the first-$42 bar.",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "eip155:8453",
+          "amount": "42000000",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x07C2383008a9ed30581f27Db5531E19411c94fb3",
+          "maxTimeoutSeconds": 60,
+          "extra": { "name": "USD Coin", "version": "2" }
+        }
+      ],
+      "fallback": {
+        "scheme": "stripe",
+        "network": "fiat",
+        "amountUsd": 42,
+        "asset": "USD",
+        "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
+      }
+    },
+    {
+      "url": "https://policy-gate.3labsio.workers.dev/v1/check",
+      "method": "POST",
+      "mimeType": "application/json",
+      "description": "Evaluate a proposed action against a policy. $0.005 USDC per check.",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "eip155:8453",
+          "amount": "5000",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x07C2383008a9ed30581f27Db5531E19411c94fb3",
+          "maxTimeoutSeconds": 60,
+          "extra": { "name": "USD Coin", "version": "2" }
+        }
+      ]
+    }
+  ],
+  "docs": "https://github.com/fieldproofhq/policy-gate",
+  "contact": "https://github.com/fieldproofhq/policy-gate/issues"
+}

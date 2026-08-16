@@ -58,4 +58,12 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.ok(openapi.paths["/v1/sponsor"].post);
   const openapiWellKnown = JSON.parse(fs.readFileSync(new URL("./.well-known/openapi.json", import.meta.url), "utf8"));
   assert.equal(openapiWellKnown.externalDocs.url, agentCard.card);
+  const x402 = JSON.parse(fs.readFileSync(new URL("./.well-known/x402", import.meta.url), "utf8"));
+  assert.equal(x402.x402Version, 2);
+  assert.equal(x402.fallback.url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  const sponsor = x402.resources.find((r) => r.url.endsWith("/v1/sponsor"));
+  assert.ok(sponsor);
+  assert.equal(sponsor.accepts[0].amount, "42000000");
+  assert.equal(sponsor.accepts[0].payTo, "0x07C2383008a9ed30581f27Db5531E19411c94fb3");
+  assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/x402/);
 });
