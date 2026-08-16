@@ -184,6 +184,10 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.equal(payWellKnown.also.quote, "https://policy-gate.3labsio.workers.dev/v1/quote");
   assert.match(llmsFull, /\/v1\/quote/);
   assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/quote/);
+  assert.equal(payWellKnown.also.card_qr, "https://policy-gate.3labsio.workers.dev/v1/pay/card.png");
+  assert.ok(openapi.paths["/v1/pay/card.png"].get);
+  assert.match(llmsFull, /\/v1\/pay\/card\.png/);
+  assert.match(sitemap, /policy-gate\.3labsio\.workers\.dev\/v1\/pay\/card\.png/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");

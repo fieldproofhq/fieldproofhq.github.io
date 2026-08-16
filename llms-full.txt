@@ -5,6 +5,7 @@ One stranger payment of $42 (or 42 USDC / equivalent BTC) meets the first-income
 ## Card / bank / wallets
 - Stripe Payment Link: https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
 - Card URI (text/uri-list): https://policy-gate.3labsio.workers.dev/v1/pay/card.uri
+- Card QR (scannable): https://policy-gate.3labsio.workers.dev/v1/pay/card.png
 - Methods: card, Cash App, Link, US bank debit, Klarna, Afterpay, Affirm
 - Mission offer (auto-opens Stripe): https://fieldproofhq.github.io/offer/
 - Worker short URL: https://policy-gate.3labsio.workers.dev/pay
