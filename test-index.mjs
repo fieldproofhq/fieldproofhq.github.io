@@ -87,6 +87,10 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(mcp.url, /policy-gate\.3labsio\.workers\.dev\/mcp$/);
   assert.ok(mcp.tools.includes("first_42_sponsor"));
   assert.equal(mcp.payment.url, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");
+  assert.equal(mcp.invoice, "https://policy-gate.3labsio.workers.dev/v1/invoice");
+  assert.equal(mcp.card_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/card.uri");
+  assert.equal(mcp.usdc_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri");
+  assert.equal(mcp.btc_uri, "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri");
   assert.match(sitemap, /fieldproofhq\.github\.io\/\.well-known\/mcp\.json/);
   const wellKnownLlms = fs.readFileSync(new URL("./.well-known/llms.txt", import.meta.url), "utf8");
   assert.match(wellKnownLlms, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
@@ -101,6 +105,7 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(llmsFull, /\/v1\/pay\/usdc\.uri/);
   assert.match(llmsFull, /\/v1\/pay\/btc\.uri/);
   assert.match(llmsFull, /\/v1\/invoice/);
+  assert.match(llmsFull, /policy-gate\.3labsio\.workers\.dev\/mcp/);
   assert.match(llmsFull, /\/v1\/pay\/card\.uri/);
   const cardUri = fs.readFileSync(new URL("./pay/card.uri", import.meta.url), "utf8").trim();
   assert.equal(cardUri, "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00");

@@ -12,5 +12,9 @@
     "asset": "USD",
     "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
   },
-  "sponsor": "https://policy-gate.3labsio.workers.dev/v1/sponsor"
+  "sponsor": "https://policy-gate.3labsio.workers.dev/v1/sponsor",
+  "invoice": "https://policy-gate.3labsio.workers.dev/v1/invoice",
+  "card_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/card.uri",
+  "usdc_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri",
+  "btc_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri"
 }
