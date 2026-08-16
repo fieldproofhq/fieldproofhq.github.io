@@ -37,6 +37,8 @@
   <url><loc>https://fieldproofhq.github.io/.well-known/webfinger</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/nodeinfo</loc></url>
   <url><loc>https://policy-gate.3labsio.workers.dev/nodeinfo/2.1</loc></url>
+  <url><loc>https://policy-gate.3labsio.workers.dev/.well-known/host-meta.json</loc></url>
+  <url><loc>https://fieldproofhq.github.io/.well-known/host-meta.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/package.json</loc></url>
   <url><loc>https://fieldproofhq.github.io/pay/card.uri</loc></url>
   <url><loc>https://fieldproofhq.github.io/invoice.json</loc></url>

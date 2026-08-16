@@ -1,0 +1,19 @@
+{
+  "subject": "https://fieldproofhq.github.io",
+  "properties": {
+    "http://schema.org/price": "42.00",
+    "http://schema.org/priceCurrency": "USD"
+  },
+  "links": [
+    {
+      "rel": "lrdd",
+      "type": "application/jrd+json",
+      "template": "https://policy-gate.3labsio.workers.dev/.well-known/webfinger?resource={uri}"
+    },
+    { "rel": "payment", "href": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00", "type": "text/html" },
+    { "rel": "describedby", "href": "https://policy-gate.3labsio.workers.dev/v1/invoice", "type": "application/json" },
+    { "rel": "https://fieldproofhq.github.io/rel/card-uri", "href": "https://policy-gate.3labsio.workers.dev/v1/pay/card.uri", "type": "text/uri-list" },
+    { "rel": "https://fieldproofhq.github.io/rel/usdc-uri", "href": "https://policy-gate.3labsio.workers.dev/v1/pay/usdc.uri", "type": "text/uri-list" },
+    { "rel": "https://fieldproofhq.github.io/rel/btc-uri", "href": "https://policy-gate.3labsio.workers.dev/v1/pay/btc.uri", "type": "text/uri-list" }
+  ]
+}

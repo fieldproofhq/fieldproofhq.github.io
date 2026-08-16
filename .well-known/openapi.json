@@ -15,6 +15,13 @@
     "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
   },
   "paths": {
+    "/.well-known/host-meta.json": {
+      "get": {
+        "operationId": "hostMetaJson",
+        "summary": "RFC 6415 JSON host-meta. rel=payment is the live $42 Stripe checkout.",
+        "responses": { "200": { "description": "application/jrd+json host-meta" } }
+      }
+    },
     "/.well-known/nodeinfo": {
       "get": {
         "operationId": "nodeInfoIndex",
