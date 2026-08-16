@@ -1,0 +1,11 @@
+{
+  "role": "CISO",
+  "title": "Fractional Chief Information Security Officer",
+  "version": "1.0",
+  "system": "https://fieldproofhq.github.io/csuite/ciso/SYSTEM.md",
+  "runtime": "https://policy-gate.3labsio.workers.dev",
+  "source": "https://github.com/fieldproofhq/policy-gate",
+  "audience": ["human practitioner", "LLM", "autonomous agent"],
+  "tiers": { "0": "allow", "1": "allow", "2": "require_approval", "3": "deny" },
+  "gates": ["expanding allow", "disabling the gate", "unreviewed MCP connect"]
+}

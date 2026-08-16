@@ -1,0 +1,9 @@
+{
+  "role": "CTO",
+  "title": "Fractional Chief Technology Officer",
+  "version": "1.0",
+  "system": "https://fieldproofhq.github.io/csuite/cto/SYSTEM.md",
+  "audience": ["human practitioner", "LLM", "autonomous agent"],
+  "surfaces": ["Cloudflare Worker", "MCP", "x402", "Gumroad custom domain", "GitHub Pages"],
+  "gates": ["new cloud accounts", "DNS nameserver moves", "secret rotation"]
+}

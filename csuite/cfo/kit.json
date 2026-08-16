@@ -1,0 +1,10 @@
+{
+  "role": "CFO",
+  "title": "Fractional Chief Financial Officer",
+  "version": "1.0",
+  "system": "https://fieldproofhq.github.io/csuite/cfo/SYSTEM.md",
+  "audience": ["human practitioner", "LLM", "autonomous agent"],
+  "observe": ["on-chain USDC", "BTC address", "Gumroad sales-read", "Zelle/Gmail receipts", "Stripe empty-live"],
+  "neverCount": ["self-test", "self-buy", "HTTP 200 storefront", "HTTP 402 quote"],
+  "gates": ["no money movement", "no new payment accounts", "no Payment Links"]
+}

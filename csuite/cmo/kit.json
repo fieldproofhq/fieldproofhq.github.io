@@ -1,0 +1,18 @@
+{
+  "role": "CMO",
+  "title": "Fractional Chief Marketing Officer",
+  "version": "1.1",
+  "priceUsd": 39,
+  "wordKit": "https://store.3labs.io/l/fractional-cmo-launch-kit",
+  "system": "https://fieldproofhq.github.io/csuite/cmo/SYSTEM.md",
+  "audience": ["human practitioner", "LLM", "autonomous agent"],
+  "positionTemplate": "I am a fractional CMO for [company type, size, stage] who [core problem] so they can [outcome].",
+  "cadence": ["Mon pipeline", "Tue-Thu outreach", "Wed artifact", "Fri review"],
+  "deliverables": [
+    "one-sentence position",
+    "offer ladder",
+    "two-week audit + 90-day roadmap",
+    "monthly five-sentence report"
+  ],
+  "gates": ["no paid ads without a named human", "no unsupervised public posts", "do not invent revenue"]
+}

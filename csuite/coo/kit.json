@@ -1,0 +1,9 @@
+{
+  "role": "COO",
+  "title": "Fractional Chief Operating Officer",
+  "version": "1.0",
+  "system": "https://fieldproofhq.github.io/csuite/coo/SYSTEM.md",
+  "audience": ["human practitioner", "LLM", "autonomous agent"],
+  "loop": ["observe", "propose", "independently verify", "record", "distill"],
+  "gates": ["money", "accounts", "CAPTCHAs", "deletions", "purchases", "unsupervised publish"]
+}
