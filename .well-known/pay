@@ -20,6 +20,7 @@
     "pack_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/pack.uri",
     "tip_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri",
     "security": "https://policy-gate.3labsio.workers.dev/.well-known/security.txt",
-    "humans": "https://policy-gate.3labsio.workers.dev/humans.txt"
+    "humans": "https://policy-gate.3labsio.workers.dev/humans.txt",
+    "webfinger": "https://policy-gate.3labsio.workers.dev/.well-known/webfinger?resource=acct:pay@policy-gate.3labsio.workers.dev"
   }
 }
