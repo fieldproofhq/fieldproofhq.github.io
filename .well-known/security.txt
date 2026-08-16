@@ -1,0 +1,10 @@
+Contact: mailto:3labsio@gmail.com
+Contact: https://policy-gate.3labsio.workers.dev/v1/invoice
+Expires: 2027-08-16T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://fieldproofhq.github.io/.well-known/security.txt
+Policy: https://policy-gate.3labsio.workers.dev/skills/pay/SKILL.md
+Hiring: https://fieldproofhq.github.io/offer/
+# Pay $42: https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00
+# Card URI: https://policy-gate.3labsio.workers.dev/v1/pay/card.uri
+# Zelle $42: https://policy-gate.3labsio.workers.dev/v1/pay/zelle.uri

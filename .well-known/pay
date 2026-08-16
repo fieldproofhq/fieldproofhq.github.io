@@ -18,6 +18,7 @@
     "zelle_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/zelle.uri",
     "store": "https://store.3labs.io",
     "pack_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/pack.uri",
-    "tip_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri"
+    "tip_uri": "https://policy-gate.3labsio.workers.dev/v1/pay/tip-jar.uri",
+    "security": "https://policy-gate.3labsio.workers.dev/.well-known/security.txt"
   }
 }

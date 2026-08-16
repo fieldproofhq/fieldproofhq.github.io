@@ -15,6 +15,13 @@
     "url": "https://buy.stripe.com/eVq4gA91U3Rr1Yt6z31sQ00"
   },
   "paths": {
+    "/.well-known/security.txt": {
+      "get": {
+        "operationId": "securityTxt",
+        "summary": "RFC 9116 security.txt. Contact is the $42 Zelle inbox and the live invoice.",
+        "responses": { "200": { "description": "text/plain security.txt with live $42 rails" } }
+      }
+    },
     "/package.json": {
       "get": {
         "operationId": "npmFunding",
