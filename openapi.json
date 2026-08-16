@@ -57,6 +57,13 @@
         "responses": { "200": { "description": "text/uri-list; one ethereum: transfer URI" } }
       }
     },
+    "/v1/pay/zelle.uri": {
+      "get": {
+        "operationId": "payZelleUri",
+        "summary": "text/uri-list mailto invoice for $42 via Zelle",
+        "responses": { "200": { "description": "text/uri-list; one mailto: URI" } }
+      }
+    },
     "/v1/pay/btc.uri": {
       "get": {
         "operationId": "payBtcUri",
