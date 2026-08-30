@@ -266,3 +266,15 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   assert.match(funding, /fieldproofhq\.github\.io\/offer\//);
   assert.match(funding, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
 });
+
+test("mission page keeps MBA tuition framing without naming a school", () => {
+  assert.match(html, /name="description" content="[^"]*to pay two MBA tuitions/);
+  assert.match(html, /og:description" content="Goal: \$54,800 for two MBA tuitions/);
+  assert.match(html, /twitter:title" content="Fieldproof — \$54,800 tuition, first honest \$42"/);
+  assert.match(html, /Mark &amp; Meghan's two MBA tuitions/);
+  assert.match(html, /Both admitted to an executive MBA/);
+  assert.match(html, /\$54,800 due Aug 20, 2026/);
+  assert.match(html, /full program is about \$250,000/i);
+  const readme = fs.readFileSync(new URL("./README.md", import.meta.url), "utf8");
+  assert.match(readme, /funding two MBA tuitions/);
+});
