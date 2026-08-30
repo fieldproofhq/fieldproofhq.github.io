@@ -265,4 +265,9 @@ test("mission page pay CTAs are visible and point at live $42 store rails", () =
   const funding = fs.readFileSync(new URL("./.github/FUNDING.yml", import.meta.url), "utf8");
   assert.match(funding, /fieldproofhq\.github\.io\/offer\//);
   assert.match(funding, /buy\.stripe\.com\/eVq4gA91U3Rr1Yt6z31sQ00/);
+  assert.match(html, /name="description" content="[^"]*to pay two MBA tuitions/);
+  assert.match(html, /og:description" content="Goal: \$54,800 for two MBA tuitions/);
+  assert.match(html, /Mark &amp; Meghan's two MBA tuitions/);
+  assert.match(html, /Both admitted to an executive MBA/);
+  assert.match(html, /\$54,800 due Aug 20, 2026/);
 });
