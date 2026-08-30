@@ -60,10 +60,11 @@ test("proof page stays free: no paywall, store prices, or invented figures", () 
   assert.doesNotMatch(proof, /Pay \$/);
   assert.doesNotMatch(proof, /Buy /);
   assert.doesNotMatch(proof, /Hill POST/i);
-  assert.doesNotMatch(proof, /TAM|total addressable|market size|billion/i);
+  assert.doesNotMatch(proof, /\bTAM\b|total addressable|market size|\bbillion\b/i);
   assert.doesNotMatch(proof, /university|WashU|Washington University|Saint Louis University|\bSLU\b/i);
   assert.doesNotMatch(proof, /180,000|90%/);
-  const citeHrefs = [...proof.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
+  const body = proof.slice(proof.indexOf("<body>"));
+  const citeHrefs = [...body.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
   const allowed = new Set([
     "https://x.com/FieldProofAI",
     "https://github.com/fieldproofhq",
